@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { BackEndService } from './back-end.service';
 
@@ -7,6 +7,16 @@ import { BackEndService } from './back-end.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'families-closet-front-end';
+
+  constructor(private backEndService: BackEndService) {}
+
+  ngOnInit(): void {
+    this.backEndService.getFamilies()
+      .subscribe(response => {
+        console.log(response);
+      }
+      )
+  }
 }
