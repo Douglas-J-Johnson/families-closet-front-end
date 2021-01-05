@@ -1,0 +1,20 @@
+<div class="slds-grid slds-grid_pull-padded slds-grid_vertical-align-center slds-m-top_large">
+  <div class="slds-col_padded">
+    <ngl-input label="First Name">
+      <input ngl type="input" placeholder="Enter child's first name">
+    </ngl-input>
+  </div>
+  <div class="slds-col_padded">
+    <ngl-combobox label="Gender" [options]="genders" [(open)]="open" [(selection)]="selection">
+      <input nglCombobox placeholder="Select a Gender Option">
+    </ngl-combobox>
+  </div>
+  <div class="slds-col_padded">
+    <ngl-datepicker-input label="Birthdate" [(value)]="value" format="middle-endian" patternPlaceholder>
+      <input nglDatepickerInput type="text">
+    </ngl-datepicker-input>
+  </div>
+  <div class="slds-col_padded">
+    <button type="button" nglButtonIcon iconName="action:remove" title="Remove child"></button>
+  </div>
+</div>
