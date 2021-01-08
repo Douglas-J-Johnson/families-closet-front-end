@@ -8,13 +8,15 @@ import { NglModule } from 'ng-lightning';
 import { ChildComponent } from './child/child.component';
 import { FamiliyComponent } from './familiy/familiy.component';
 import { CaregiverComponent } from './caregiver/caregiver.component';
+import { FamilySummaryComponent } from './family-summary/family-summary.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     ChildComponent,
     FamiliyComponent,
-    CaregiverComponent
+    CaregiverComponent,
+    FamilySummaryComponent
   ],
   imports: [
     BrowserModule,
