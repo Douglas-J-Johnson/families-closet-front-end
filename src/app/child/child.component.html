@@ -5,10 +5,17 @@
       <input ngl type="input" placeholder="Enter child's first name">
     </ngl-input>
   </div>
-  <div class="slds-col_padded">
+  <!-- <div class="slds-col_padded">
     <ngl-combobox label="Gender" [options]="genders" [(open)]="open" [(selection)]="selection">
       <input nglCombobox placeholder="Select a Gender Option">
     </ngl-combobox>
+  </div> -->
+  <div class="slds-col_padded" label="Gender Preference">
+    <div class="slds-button-group" [(nglPick)]="selection" nglPickActiveClass="slds-button_brand" role="group">
+      <button type="button" nglButton nglPickOption="left">Male</button>
+      <button type="button" nglButton nglPickOption="middle">Female</button>
+      <button type="button" nglButton [nglPickOption]="'right'">No Preference</button>
+    </div>
   </div>
   <div class="slds-col_padded">
     <ngl-datepicker-input label="Birthdate" [(value)]="value" format="middle-endian" patternPlaceholder>

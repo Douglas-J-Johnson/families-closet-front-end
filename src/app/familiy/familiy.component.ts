@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./familiy.component.scss']
 })
 export class FamiliyComponent implements OnInit {
+  locationOpen = true;
+  caregiversOpen = true;
+  childrenOpen = true;
 
   constructor() { }
 
