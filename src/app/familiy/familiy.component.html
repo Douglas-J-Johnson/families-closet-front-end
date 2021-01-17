@@ -1,16 +1,36 @@
-<ngl-icon iconName="utility:groups" alternativeText="Audio file"></ngl-icon>
-<h1>Blah Blah Blah Family</h1>
-<ngl-icon iconName="utility:edit" alternativeText="Audio file" size="x-small"></ngl-icon>
+<ngl-input label="Family Display Name">
+  <input ngl type="input" required='true' placeholder="Enter name to display for your family">
+</ngl-input>
 
 <ngl-expandable-section title="Location" [(open)]="locationOpen" [collapsable]='true'>
-  blah
+  <ngl-input label="Actual Location">
+    <input ngl type="input">
+  </ngl-input>
+  <ngl-input label="Display Location">
+    <input ngl type="input">
+  </ngl-input>
 </ngl-expandable-section>
 
 <ngl-expandable-section title="Caregivers" [(open)]="caregiversOpen" [collapsable]='true'>
   <div class="slds-grid slds-grid_pull-padded slds-grid_vertical-align-center">
-    <h1>Caregivers</h1>
-    <button type="button" nglButtonIcon iconName="utility:adduser" title="Add caregiver"></button>
-    <button type="button" nglButtonIcon iconName="action:change_owner" title="Change main caregiver"></button>
+    <button
+      nglButton
+      title="Add Caregiver"
+      type="button"
+      variant="brand"
+      iconName="utility:adduser"
+      iconPosition="right">
+        Add Caregiver
+    </button>
+    <button
+      nglButton
+      title="Change Caregiver Permissions"
+      type="button"
+      variant="brand"
+      iconName="utility:user_role"
+      iconPosition="right">
+        Caregiver Permissions
+    </button>
   </div>
   <app-caregiver></app-caregiver>
   <app-caregiver></app-caregiver>
@@ -18,8 +38,15 @@
 
 <ngl-expandable-section title="Children" [(open)]="childrenOpen" [collapsable]='true'>
   <div class="slds-grid slds-grid_pull-padded slds-grid_vertical-align-center">
-    <h1>Children</h1>
-    <button type="button" nglButtonIcon iconName="utility:adduser" title="Add child"></button>
+    <button
+      nglButton
+      title="Add Child"
+      type="button"
+      variant="brand"
+      iconName="utility:adduser"
+      iconPosition="right">
+        Add Child
+    </button>
   </div>
   <app-child></app-child>
   <app-child></app-child>
