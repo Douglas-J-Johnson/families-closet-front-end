@@ -8,7 +8,7 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 })
 export class ChildComponent implements OnInit {
 
-  // genders = ['Male', 'Female', 'No Preference'];
+  genders = ['Male', 'Female', 'No Preference'];
   selection: string = 'No Preference';
   open = false;
 
