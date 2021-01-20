@@ -19,4 +19,8 @@ export class ChildComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  removeChild(): void {
+    console.log('Remove child')
+  }
+
 }

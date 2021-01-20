@@ -1,8 +1,10 @@
-<div class="slds-grid slds-grid_pull-padded slds-grid_vertical-align-end">
+<div class="slds-grid slds-wrap">
+  <div class="slds-col">
     <ngl-input label="First Name">
       <input ngl type="input" placeholder="Enter child's first name">
     </ngl-input>
-  <div class="slds-col_padded">
+  </div>
+  <div class="slds-col">
     <ng-template #groupLabel>Clothing Gender Preference</ng-template>
     <fieldset ngl-radio-group [label]="groupLabel" [required]='false' type="button">
       <ngl-radio-option *ngFor="let gender of genders" [label]="gender">
@@ -10,29 +12,31 @@
       </ngl-radio-option>
     </fieldset>
   </div>
-  <div class="slds-col_padded">
+  <div class="slds-col">
     <ngl-datepicker-input label="Birthdate" [(value)]="value" format="middle-endian" patternPlaceholder>
       <input nglDatepickerInput type="text">
     </ngl-datepicker-input>
   </div>
-  <div class="slds-col_padded">
+  <div class="slds-col">
     <ngl-checkbox-toggle label="Partner to Give" enabledText="Yes" disabledText="No">
       <input ngl type="checkbox">
     </ngl-checkbox-toggle>
   </div>
-  <div class="slds-col_padded">
+  <div class="slds-col">
     <ngl-checkbox-toggle label="Partner to Receive" enabledText="Yes" disabledText="No">
       <input ngl type="checkbox">
     </ngl-checkbox-toggle>
     <button type="button" nglButtonIcon iconName="standard:search" title="Find givers"></button>
   </div>
-  <button
-    nglButton
-    title="Remove Child"
-    type="button"
-    variant="destructive"
-    iconName="utility:delete"
-    iconPosition="right">
-      Remove
-  </button>
+  <div class="slds-col">
+    <button
+      nglButton
+      title="Remove Child"
+      type="button"
+      variant="destructive"
+      iconName="utility:delete"
+      iconPosition="right">
+        Remove
+    </button>
+  </div>
 </div>

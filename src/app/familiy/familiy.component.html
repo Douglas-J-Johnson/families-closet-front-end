@@ -1,54 +1,56 @@
-<ngl-input label="Family Display Name">
-  <input ngl type="input" required='true' placeholder="Enter name to display for your family">
-</ngl-input>
-
-<ngl-expandable-section title="Location" [(open)]="locationOpen" [collapsable]='true'>
-  <ngl-input label="Actual Location">
-    <input ngl type="input">
-  </ngl-input>
-  <ngl-input label="Display Location">
-    <input ngl type="input">
-  </ngl-input>
-</ngl-expandable-section>
-
-
-<ngl-expandable-section title="Caregivers" [(open)]="caregiversOpen" [collapsable]='true'>
-  <div class="slds-grid slds-grid_pull-padded slds-grid_vertical-align-center">
-    <button
-      nglButton
-      title="Add Caregiver"
-      type="button"
-      variant="brand"
-      iconName="utility:adduser"
-      iconPosition="right">
-        Add Caregiver
-    </button>
-    <button
-      nglButton
-      title="Change Caregiver Permissions"
-      type="button"
-      variant="brand"
-      iconName="utility:user_role"
-      iconPosition="right">
-        Caregiver Permissions
-    </button>
+<div class="slds-grid slds-grid_vertical">
+  <div class="slds-col">
+    <ngl-input label="Family Display Name">
+      <input ngl type="input" required='true' placeholder="Enter name to display for your family">
+    </ngl-input>
   </div>
-  <app-caregiver></app-caregiver>
-  <app-caregiver></app-caregiver>
-</ngl-expandable-section>
-
-<ngl-expandable-section title="Children" [(open)]="childrenOpen" [collapsable]='true'>
-  <div class="slds-grid slds-grid_pull-padded slds-grid_vertical-align-center">
-    <button
-      nglButton
-      title="Add Child"
-      type="button"
-      variant="brand"
-      iconName="utility:adduser"
-      iconPosition="right">
-        Add Child
-    </button>
+  <div class="slds-col">
+    <ngl-expandable-section title="Location" [(open)]="locationOpen" [collapsable]='true'>
+      <ngl-input label="Actual Location">
+        <input ngl type="input">
+      </ngl-input>
+      <ngl-input label="Display Location">
+        <input ngl type="input">
+      </ngl-input>
+    </ngl-expandable-section>
   </div>
-  <app-child></app-child>
-  <app-child></app-child>
-</ngl-expandable-section>
+  <div class="slds-col">
+    <ngl-expandable-section title="Caregivers" [(open)]="caregiversOpen" [collapsable]='true'>
+      <button
+        nglButton
+        title="Add Caregiver"
+        type="button"
+        variant="brand"
+        iconName="utility:adduser"
+        iconPosition="right">
+          Add Caregiver
+      </button>
+      <button
+        nglButton
+        title="Change Caregiver Permissions"
+        type="button"
+        variant="brand"
+        iconName="utility:user_role"
+        iconPosition="right">
+          Caregiver Permissions
+      </button>
+      <app-caregiver></app-caregiver>
+      <app-caregiver></app-caregiver>
+    </ngl-expandable-section>
+  </div>
+  <div class="slds-col">
+    <ngl-expandable-section title="Children" [(open)]="childrenOpen" [collapsable]='true'>
+      <button
+        nglButton
+        title="Add Child"
+        type="button"
+        variant="brand"
+        iconName="utility:adduser"
+        iconPosition="right">
+          Add Child
+      </button>
+      <app-child></app-child>
+      <app-child></app-child>
+    </ngl-expandable-section>
+  </div>
+</div>
