@@ -68,3 +68,35 @@
     </div>
   </div>
 </div>
+
+<ngl-modal [open]='false' [directional]='true' [dismissOnClickOutside]='false'>
+  <ng-template nglModalHeader>
+    Save Header
+  </ng-template>
+  <ng-template nglModalTagline>
+    Save Tagline
+  </ng-template>
+  <div class="slds-p-around_medium">
+    Save Body
+  </div>
+  <ng-template nglModalFooter>
+    <button class="slds-button slds-button_destructive">Save</button>
+    <button class="slds-button slds-button_neutral">Cancel</button>
+  </ng-template>
+</ngl-modal>
+
+<ngl-modal [open]='false' [directional]='true' [dismissOnClickOutside]='false'>
+  <ng-template nglModalHeader>
+    Remove Header
+  </ng-template>
+  <ng-template nglModalTagline>
+    Remove Tagline
+  </ng-template>
+  <div class="slds-p-around_medium">
+    Remove Body
+  </div>
+  <ng-template nglModalFooter>
+    <button class="slds-button slds-button_destructive">Confirm Removal</button>
+    <button class="slds-button slds-button_neutral">Cancel</button>
+  </ng-template>
+</ngl-modal>
