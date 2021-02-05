@@ -1,16 +1,16 @@
 <article class="slds-card slds-m-around_x-small">
   <div class="slds-grid slds-grid_vertical slds-m-around_x-small">
-    <div class="slds-col slds-p-around_xx-small">
+    <div class="slds-col slds-p-horizontal_xx-small">
       <ngl-input label="First Name">
         <input ngl type="input" placeholder="Enter child's first name">
       </ngl-input>
     </div>
-    <div class="slds-col slds-p-around_xx-small">
+    <div class="slds-col slds-p-horizontal_xx-small">
       <ngl-datepicker-input label="Birthdate" [(value)]="value" format="middle-endian" patternPlaceholder>
         <input nglDatepickerInput type="text">
       </ngl-datepicker-input>
     </div>
-    <div class="slds-col slds-p-around_xx-small">
+    <div class="slds-col slds-p-horizontal_xx-small">
       <ng-template #groupLabel>Clothing Gender Preference</ng-template>
       <fieldset ngl-radio-group [label]="groupLabel" [required]='false' type="button">
         <ngl-radio-option *ngFor="let gender of genders" [label]="gender">
@@ -18,7 +18,7 @@
         </ngl-radio-option>
       </fieldset>
     </div>
-    <div class="slds-grid">
+    <div class="slds-grid slds-m-top_small">
       <div class="slds-col slds-p-around_xx-small">
         <ngl-checkbox-toggle label="Give" enabledText="Yes" disabledText="No">
           <input ngl type="checkbox">
