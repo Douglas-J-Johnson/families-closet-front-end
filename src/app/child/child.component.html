@@ -10,28 +10,55 @@
         <input nglDatepickerInput type="text">
       </ngl-datepicker-input>
     </div>
-    <div class="slds-col slds-p-horizontal_xx-small">
-      <ng-template #groupLabel>Clothing Gender Preference</ng-template>
-      <fieldset ngl-radio-group [label]="groupLabel" [required]='false' type="button">
-        <ngl-radio-option *ngFor="let gender of genders" [label]="gender">
-          <input ngl type="radio">
-        </ngl-radio-option>
-      </fieldset>
-    </div>
-    <div class="slds-grid slds-m-top_small">
-      <div class="slds-col slds-p-around_xx-small">
-        <ngl-checkbox-toggle label="Give" enabledText="Yes" disabledText="No">
-          <input ngl type="checkbox">
-        </ngl-checkbox-toggle>
-      </div>
-      <div class="slds-grid">
-        <div class="slds-col slds-p-around_xx-small">
-          <ngl-checkbox-toggle label="Receive" enabledText="Yes" disabledText="No">
-            <input ngl type="checkbox">
-          </ngl-checkbox-toggle>
+    <div class="slds-grid slds-wrap slds-m-top_small">
+      <div class="slds-col slds-m-around_x-small">
+        <div class="slds-box slds-theme_default">
+          <div class="slds-grid slds-grid_vertical">
+            <div class="slds-col slds-p-around_xx-small">
+              <ngl-checkbox-toggle label="Give" enabledText="Yes" disabledText="No">
+                <input ngl type="checkbox">
+              </ngl-checkbox-toggle>
+            </div>
+            <div class="slds-col slds-p-horizontal_xx-small">
+              <ng-template #groupLabel>Clothing Gender Preference</ng-template>
+              <fieldset ngl-radio-group [label]="groupLabel" [required]='false' type="button">
+                <ngl-radio-option *ngFor="let gender of genders" [label]="gender">
+                  <input ngl type="radio">
+                </ngl-radio-option>
+              </fieldset>
+            </div>
+          </div>
         </div>
-        <div class="slds-col slds-p-around_xx-small">
-          <button type="button" class="slds-float_right" nglButtonIcon iconName="standard:search" title="Find givers"></button>
+      </div>
+      <div class="slds-col slds-m-around_x-small">
+        <div class="slds-box slds-theme_default">
+          <div class="slds-grid slds-grid_vertical">
+            <div class="slds-grid">
+              <div class="slds-col slds-p-around_xx-small">
+                <ngl-checkbox-toggle label="Receive" enabledText="Yes" disabledText="No">
+                  <input ngl type="checkbox">
+                </ngl-checkbox-toggle>
+              </div>
+              <div class="slds-col slds-p-around_xx-small">
+                <button
+                  nglButton
+                  title="Find givers"
+                  type="button"
+                  variant="brand"
+                  iconName="standard:search">
+                    Find Partners
+                </button>
+              </div>
+            </div>
+            <div class="slds-col slds-p-horizontal_xx-small">
+              <ng-template #groupLabel>Clothing Gender Preference</ng-template>
+              <fieldset ngl-radio-group [label]="groupLabel" [required]='false' type="button">
+                <ngl-radio-option *ngFor="let gender of genders" [label]="gender">
+                  <input ngl type="radio">
+                </ngl-radio-option>
+              </fieldset>
+            </div>
+          </div>
         </div>
       </div>
     </div>
