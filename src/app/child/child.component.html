@@ -6,7 +6,7 @@
       </ngl-input>
     </div>
     <div class="slds-col slds-p-horizontal_xx-small">
-      <ngl-datepicker-input label="Birthdate" [(value)]="value" format="middle-endian" patternPlaceholder>
+      <ngl-datepicker-input label="Birthdate" [(value)]="birthdate" format="middle-endian" patternPlaceholder>
         <input nglDatepickerInput type="text">
       </ngl-datepicker-input>
     </div>
@@ -45,7 +45,8 @@
                   title="Find givers"
                   type="button"
                   variant="brand"
-                  iconName="standard:search">
+                  iconName="standard:search"
+                  (click)="findPartners()">
                     Find Partners
                 </button>
               </div>
@@ -69,7 +70,8 @@
           title="Edit"
           type="button"
           variant="brand"
-          iconName="utility:edit">
+          iconName="utility:edit"
+          (click)="edit()">
             Edit
         </button>
       </div>
@@ -79,7 +81,8 @@
           title="Save"
           type="button"
           variant="brand"
-          iconName="utility:save">
+          iconName="utility:save"
+          (click)="save()">
             Save
         </button>
       </div>
@@ -90,7 +93,8 @@
           type="button"
           variant="destructive"
           iconName="utility:delete"
-          iconPosition="right">
+          iconPosition="right"
+          (click)="remove()">
             Remove
         </button>
       </div>
@@ -98,6 +102,7 @@
   </div>
 </article>
 
+<!-- Save Confirmation Modal -->
 <ngl-modal [open]='false' [directional]='true' [dismissOnClickOutside]='false'>
   <ng-template nglModalHeader>
     Save Header
@@ -113,7 +118,9 @@
     <button class="slds-button slds-button_neutral">Cancel</button>
   </ng-template>
 </ngl-modal>
+<!-- Save Confirmation Modal -->
 
+<!-- Remove Confirmation Modal -->
 <ngl-modal [open]='false' [directional]='true' [dismissOnClickOutside]='false'>
   <ng-template nglModalHeader>
     Remove Header
@@ -129,3 +136,4 @@
     <button class="slds-button slds-button_neutral">Cancel</button>
   </ng-template>
 </ngl-modal>
+<!-- Remove Confirmation Modal -->

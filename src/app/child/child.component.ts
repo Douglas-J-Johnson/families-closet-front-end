@@ -9,17 +9,28 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
 export class ChildComponent implements OnInit {
 
   genders = ['Male', 'Female', 'No Preference'];
-  selection: string = 'No Preference';
-  open = false;
+  sizes = ''
 
-  value: Date;
+  birthdate: Date;
 
   constructor() { }
 
   ngOnInit(): void {
   }
 
-  removeChild(): void {
+  findPartners() {
+    console.log('Find partners')
+  }
+
+  edit(): void {
+    console.log('Edit child')
+  }
+
+  save(): void {
+    console.log('Save child')
+  }
+
+  remove(): void {
     console.log('Remove child')
   }
 

@@ -12,4 +12,16 @@ export class CaregiverComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  edit(): void {
+    console.log('Edit caregiver')
+  }
+
+  save(): void {
+    console.log('Save caregiver')
+  }
+
+  remove(): void {
+    console.log('Remove caregiver')
+  }
+
 }

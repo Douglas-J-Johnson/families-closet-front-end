@@ -25,7 +25,8 @@
           title="Edit"
           type="button"
           variant="brand"
-          iconName="utility:edit">
+          iconName="utility:edit"
+          (click)="edit()">
             Edit
         </button>
       </div>
@@ -35,7 +36,8 @@
           title="Save"
           type="button"
           variant="brand"
-          iconName="utility:save">
+          iconName="utility:save"
+          (click)="save()">
             Save
         </button>
       </div>
@@ -46,7 +48,8 @@
           type="button"
           variant="destructive"
           iconName="utility:delete"
-          iconPosition="right">
+          iconPosition="right"
+          (click)="remove()">
             Remove
         </button>
       </div>
@@ -54,6 +57,7 @@
   </div>
 </article>
 
+<!-- Save Confirmation Modal -->
 <ngl-modal [open]='false' [directional]='true' [dismissOnClickOutside]='false'>
   <ng-template nglModalHeader>
     Save Header
@@ -69,7 +73,9 @@
     <button class="slds-button slds-button_neutral">Cancel</button>
   </ng-template>
 </ngl-modal>
+<!-- Save Confirmation Modal -->
 
+<!-- Remove Confirmation Modal -->
 <ngl-modal [open]='false' [directional]='true' [dismissOnClickOutside]='false'>
   <ng-template nglModalHeader>
     Remove Header
@@ -85,3 +91,4 @@
     <button class="slds-button slds-button_neutral">Cancel</button>
   </ng-template>
 </ngl-modal>
+<!-- Remove Confirmation Modal -->
