@@ -103,9 +103,9 @@
 </article>
 
 <!-- Save Confirmation Modal -->
-<ngl-modal [open]='false' [directional]='true' [dismissOnClickOutside]='false'>
+<ngl-modal [open]="saveModalOpen" [directional]='true' [dismissOnClickOutside]='false'>
   <ng-template nglModalHeader>
-    Save Header
+    Save Child Header
   </ng-template>
   <ng-template nglModalTagline>
     Save Tagline
@@ -121,9 +121,9 @@
 <!-- Save Confirmation Modal -->
 
 <!-- Remove Confirmation Modal -->
-<ngl-modal [open]='false' [directional]='true' [dismissOnClickOutside]='false'>
+<ngl-modal [open]="removeModalOpen" [directional]='true' [dismissOnClickOutside]='false'>
   <ng-template nglModalHeader>
-    Remove Header
+    Remove Child Header
   </ng-template>
   <ng-template nglModalTagline>
     Remove Tagline

@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./caregiver.component.scss']
 })
 export class CaregiverComponent implements OnInit {
+  saveModalOpen:boolean = false
+  removeModalOpen:boolean = false
 
   constructor() { }
 

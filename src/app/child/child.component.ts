@@ -7,6 +7,8 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChildComponent implements OnInit {
+  saveModalOpen:boolean = false
+  removeModalOpen:boolean = false
 
   genders = ['Male', 'Female', 'No Preference'];
   sizes = ''
