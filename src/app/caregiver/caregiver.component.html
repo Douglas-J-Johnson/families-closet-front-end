@@ -19,7 +19,7 @@
       </ngl-input>
     </div>
     <div class="slds-grid slds-grid_align-end slds-m-top_small">
-      <div class="slds-col slds-p-around_xx-small">
+      <div *ngIf="!editing" class="slds-col slds-p-around_xx-small">
         <button
           nglButton
           title="Edit"
@@ -30,12 +30,12 @@
             Edit
         </button>
       </div>
-      <div class="slds-col slds-p-around_xx-small">
+      <div *ngIf="editing" class="slds-col slds-p-around_xx-small" >
         <button
           nglButton
-          title="Save"
-          type="button"
-          variant="brand"
+          class="slds-button"
+          [class.slds-button_neutral] = "!changed"
+          [class.slds-button_brand] = "changed"
           iconName="utility:save"
           (click)="save()">
             Save
@@ -44,9 +44,7 @@
       <div class="slds-col slds-p-around_xx-small">
         <button
           nglButton
-          title="Remove Caregiver"
-          type="button"
-          variant="destructive"
+          class="slds-button slds-button_destructive"
           iconName="utility:delete"
           iconPosition="right"
           (click)="remove()">

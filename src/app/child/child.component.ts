@@ -1,4 +1,4 @@
-import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -6,19 +6,16 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./child.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ChildComponent implements OnInit {
-  saveModalOpen:boolean = false;
-  removeModalOpen:boolean = false;
+export class ChildComponent {
+  editing: boolean = false;
+  changed: boolean = false;
+  saveModalOpen: boolean = false;
+  removeModalOpen: boolean = false;
 
   genders = ['Male', 'Female', 'No Preference'];
   sizes = '';
 
   birthdate: Date;
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
 
   findPartners() {
     console.log('Find partners');
@@ -26,6 +23,7 @@ export class ChildComponent implements OnInit {
 
   edit(): void {
     console.log('Edit child');
+    this.editing = true;
   }
 
   save(): void {

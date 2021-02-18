@@ -1,21 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-caregiver',
   templateUrl: './caregiver.component.html',
   styleUrls: ['./caregiver.component.scss']
 })
-export class CaregiverComponent implements OnInit {
-  saveModalOpen:boolean = false
-  removeModalOpen:boolean = false
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class CaregiverComponent {
+  editing: boolean = false;
+  changed: boolean = false;
+  saveModalOpen: boolean = false;
+  removeModalOpen: boolean = false;
 
   edit(): void {
-    console.log('Edit caregiver')
+    console.log('Edit caregiver');
+    this.editing = true;
   }
 
   save(): void {
