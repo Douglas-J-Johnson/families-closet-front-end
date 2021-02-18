@@ -19,11 +19,32 @@ export class CaregiverComponent implements OnInit {
   }
 
   save(): void {
-    console.log('Save caregiver')
+    console.log('Save caregiver');
+    this.saveModalOpen = true;
+  }
+
+  confirmSave(): void {
+    console.log('caregiver Saved');
+    this.saveModalOpen = false;
+  }
+
+  cancelSave(): void {
+    console.log('Cancel caregiver Save');
+    this.saveModalOpen = false;
   }
 
   remove(): void {
-    console.log('Remove caregiver')
+    console.log('Remove caregiver');
+    this.removeModalOpen = true;
   }
 
+  confirmRemove(): void {
+    console.log('caregiver Removed');
+    this.removeModalOpen = false;
+  }
+
+  cancelRemove(): void {
+    console.log('Cancel caregiver Remove');
+    this.removeModalOpen = false;
+  }
 }

@@ -114,8 +114,8 @@
     Save Body
   </div>
   <ng-template nglModalFooter>
-    <button class="slds-button slds-button_destructive">Save</button>
-    <button class="slds-button slds-button_neutral">Cancel</button>
+    <button class="slds-button slds-button_brand" (click)="confirmSave()">Save</button>
+    <button class="slds-button slds-button_neutral" (click)="cancelSave()">Cancel</button>
   </ng-template>
 </ngl-modal>
 <!-- Save Confirmation Modal -->
@@ -132,8 +132,8 @@
     Remove Body
   </div>
   <ng-template nglModalFooter>
-    <button class="slds-button slds-button_destructive">Confirm Removal</button>
-    <button class="slds-button slds-button_neutral">Cancel</button>
+    <button class="slds-button slds-button_destructive" (click)="confirmRemove()">Confirm Removal</button>
+    <button class="slds-button slds-button_neutral" (click)="cancelRemove()">Cancel</button>
   </ng-template>
 </ngl-modal>
 <!-- Remove Confirmation Modal -->

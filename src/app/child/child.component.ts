@@ -7,11 +7,11 @@ import { Component, OnInit, ChangeDetectionStrategy } from '@angular/core';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ChildComponent implements OnInit {
-  saveModalOpen:boolean = false
-  removeModalOpen:boolean = false
+  saveModalOpen:boolean = false;
+  removeModalOpen:boolean = false;
 
   genders = ['Male', 'Female', 'No Preference'];
-  sizes = ''
+  sizes = '';
 
   birthdate: Date;
 
@@ -21,19 +21,40 @@ export class ChildComponent implements OnInit {
   }
 
   findPartners() {
-    console.log('Find partners')
+    console.log('Find partners');
   }
 
   edit(): void {
-    console.log('Edit child')
+    console.log('Edit child');
   }
 
   save(): void {
-    console.log('Save child')
+    console.log('Save child');
+    this.saveModalOpen = true;
+  }
+
+  confirmSave(): void {
+    console.log('Child Saved');
+    this.saveModalOpen = false;
+  }
+
+  cancelSave(): void {
+    console.log('Cancel Child Save');
+    this.saveModalOpen = false;
   }
 
   remove(): void {
-    console.log('Remove child')
+    console.log('Remove child');
+    this.removeModalOpen = true;
   }
 
+  confirmRemove(): void {
+    console.log('Child Removed');
+    this.removeModalOpen = false;
+  }
+
+  cancelRemove(): void {
+    console.log('Cancel Child Remove');
+    this.removeModalOpen = false;
+  }
 }
