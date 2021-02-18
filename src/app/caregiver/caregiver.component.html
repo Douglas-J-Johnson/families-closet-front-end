@@ -30,6 +30,15 @@
             Edit
         </button>
       </div>
+      <div *ngIf="editing && changed" class="slds-col slds-p-around_xx-small" >
+        <button
+          nglButton
+          class="slds-button slds-button_destructive"
+          iconName="utility:delete"
+          (click)="save()">
+            Discard Changes
+        </button>
+      </div>
       <div *ngIf="editing" class="slds-col slds-p-around_xx-small" >
         <button
           nglButton
@@ -45,7 +54,7 @@
         <button
           nglButton
           class="slds-button slds-button_destructive"
-          iconName="utility:delete"
+          iconName="action:remove"
           iconPosition="right"
           (click)="remove()">
             Remove
@@ -54,6 +63,24 @@
     </div>
   </div>
 </article>
+
+<!-- Discard Changes Modal -->
+<ngl-modal [open]="discardChangesModalOpen" [directional]='true' [dismissOnClickOutside]='false'>
+  <ng-template nglModalHeader>
+    Dicard Caregiver Changes Header
+  </ng-template>
+  <ng-template nglModalTagline>
+    Discard Changes Tagline
+  </ng-template>
+  <div class="slds-p-around_medium">
+    Discard Changes Body
+  </div>
+  <ng-template nglModalFooter>
+    <button class="slds-button slds-button_destructive" (click)="confirmDiscardChanges()">Discard Changes</button>
+    <button class="slds-button slds-button_neutral" (click)="cancelDiscardChanges()">Cancel</button>
+  </ng-template>
+</ngl-modal>
+<!-- Discard Changes Modal -->
 
 <!-- Save Confirmation Modal -->
 <ngl-modal [open]="saveModalOpen" [directional]='true' [dismissOnClickOutside]='false'>

@@ -7,15 +7,35 @@ import { Component } from '@angular/core';
 })
 export class CaregiverComponent {
   editing: boolean = false;
-  changed: boolean = false;
+  changed: boolean = true;
+
+  discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;
   removeModalOpen: boolean = false;
 
+  // Edit methods
   edit(): void {
     console.log('Edit caregiver');
     this.editing = true;
   }
 
+  // Discard Changes and Discard Changes modal methods
+  discardChanges(): void {
+    console.log('Discard caregiver changes');
+    this.saveModalOpen = true;
+  }
+
+  confirmDiscardChanges(): void {
+    console.log('Caregiver changes discarded');
+    this.saveModalOpen = false;
+  }
+
+  cancelDiscardChanges(): void {
+    console.log('Cancel discard caregiver changes');
+    this.saveModalOpen = false;
+  }
+
+  // Save and Save Confirmation modal methods
   save(): void {
     console.log('Save caregiver');
     this.saveModalOpen = true;
@@ -31,6 +51,7 @@ export class CaregiverComponent {
     this.saveModalOpen = false;
   }
 
+  // Remove and Remove Confirmation modal methods
   remove(): void {
     console.log('Remove caregiver');
     this.removeModalOpen = true;
