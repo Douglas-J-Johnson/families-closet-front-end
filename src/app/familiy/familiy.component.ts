@@ -30,39 +30,39 @@ export class FamiliyComponent {
 
   // Edit methods
   edit(): void {
-    console.log('Edit child');
+    console.log('Edit family information');
     this.editing = true;
   }
 
   // Discard Changes and Discard Changes modal methods
   discardChanges(): void {
-    console.log('Discard child changes');
+    console.log('Discard family information changes');
     this.saveModalOpen = true;
   }
 
   confirmDiscardChanges(): void {
-    console.log('Child changes discarded');
+    console.log('Family information changes discarded');
     this.saveModalOpen = false;
   }
 
   cancelDiscardChanges(): void {
-    console.log('Cancel discard child changes');
+    console.log('Cancel discard family information changes');
     this.saveModalOpen = false;
   }
 
   // Save and Save Confirmation modal methods
   save(): void {
-    console.log('Save child');
+    console.log('Save family information');
     this.saveModalOpen = true;
   }
 
   confirmSave(): void {
-    console.log('Child Saved');
+    console.log('Family information saved');
     this.saveModalOpen = false;
   }
 
   cancelSave(): void {
-    console.log('Cancel Child Save');
+    console.log('Cancel family information save');
     this.saveModalOpen = false;
   }
 }
