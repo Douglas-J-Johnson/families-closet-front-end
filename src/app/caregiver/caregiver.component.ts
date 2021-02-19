@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 })
 export class CaregiverComponent {
   editing: boolean = false;
-  changed: boolean = true;
+  changed: boolean = false;
 
   discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;

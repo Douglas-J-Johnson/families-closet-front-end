@@ -75,15 +75,6 @@
             Edit
         </button>
       </div>
-      <div *ngIf="editing && changed" class="slds-col slds-p-around_xx-small" >
-        <button
-          nglButton
-          class="slds-button slds-button_destructive"
-          iconName="utility:delete"
-          (click)="save()">
-            Discard Changes
-        </button>
-      </div>
       <div *ngIf="editing" class="slds-col slds-p-around_xx-small" >
         <button
           nglButton
@@ -95,7 +86,18 @@
             Save
         </button>
       </div>
-      <div class="slds-col slds-p-around_xx-small">
+      <div *ngIf="editing" class="slds-col slds-p-around_xx-small" >
+        <button
+          nglButton
+          class="slds-button"
+          [class.slds-button_neutral] = "!changed"
+          [class.slds-button_destructive] = "changed"
+          iconName="utility:delete"
+          (click)="discardChanges()">
+            Discard Changes
+        </button>
+      </div>
+      <div *ngIf="!editing" class="slds-col slds-p-around_xx-small">
         <button
           nglButton
           class="slds-button slds-button_destructive"
