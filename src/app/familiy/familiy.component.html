@@ -1,6 +1,6 @@
 <div class="slds-grid slds-grid_vertical slds-p-around_x-small">
   <div class="slds-col slds-p-horizontal_xx-small">
-    <ngl-expandable-section title="Family Information" [(open)]="locationOpen" [collapsable]='true'>
+    <ngl-expandable-section title="Family Information" [(open)]="familySectionOpen" [collapsable]='true'>
       <div class="slds-grid slds-grid_vertical">
         <div class="slds-col slds-p-horizontal_x-small">
           <ngl-input label="Family Display Name">
@@ -18,24 +18,37 @@
           </ngl-input>
         </div>
         <div class="slds-grid slds-wrap slds-grid_align-end slds-p-horizontal_x-small slds-m-vertical_medium">
-          <div class="slds-col slds-p-around_xx-small">
+          <div *ngIf="!editing" class="slds-col slds-p-around_xx-small">
             <button
               nglButton
               title="Edit"
               type="button"
               variant="brand"
-              iconName="utility:edit">
+              iconName="utility:edit"
+              (click)="edit()">
                 Edit
             </button>
           </div>
-          <div class="slds-col slds-p-around_xx-small">
+          <div *ngIf="editing" class="slds-col slds-p-around_xx-small" >
             <button
               nglButton
-              title="Save"
-              type="button"
-              variant="brand"
-              iconName="utility:save">
+              class="slds-button"
+              [class.slds-button_neutral] = "!changed"
+              [class.slds-button_brand] = "changed"
+              iconName="utility:save"
+              (click)="save()">
                 Save
+            </button>
+          </div>
+          <div *ngIf="editing" class="slds-col slds-p-around_xx-small" >
+            <button
+              nglButton
+              class="slds-button"
+              [class.slds-button_neutral] = "!changed"
+              [class.slds-button_destructive] = "changed"
+              iconName="utility:delete"
+              (click)="discardChanges()">
+                Discard Changes
             </button>
           </div>
         </div>
@@ -43,7 +56,7 @@
     </ngl-expandable-section>
   </div>
   <div class="slds-col slds-p-horizontal_xx-small">
-    <ngl-expandable-section title="Caregivers" [(open)]="caregiversOpen" [collapsable]='true'>
+    <ngl-expandable-section title="Caregivers" [(open)]="caregiversSectionOpen" [collapsable]='true'>
       <div class="slds-grid slds-grid_vertical">
         <div class="slds-col">
           <app-caregiver></app-caregiver>
@@ -79,7 +92,7 @@
     </ngl-expandable-section>
   </div>
   <div class="slds-col slds-p-horizontal_xx-small">
-    <ngl-expandable-section title="Children" [(open)]="childrenOpen" [collapsable]='true'>
+    <ngl-expandable-section title="Children" [(open)]="childrenSectionOpen" [collapsable]='true'>
       <div class="slds-grid slds-grid_vertical">
         <div class="slds-col">
           <app-child></app-child>
@@ -103,3 +116,39 @@
     </ngl-expandable-section>
   </div>
 </div>
+
+<!-- Discard Changes Modal -->
+<ngl-modal [open]="discardChangesModalOpen" [directional]='true' [dismissOnClickOutside]='false'>
+  <ng-template nglModalHeader>
+    Dicard Child Changes Header
+  </ng-template>
+  <ng-template nglModalTagline>
+    Discard Changes Tagline
+  </ng-template>
+  <div class="slds-p-around_medium">
+    Discard Changes Body
+  </div>
+  <ng-template nglModalFooter>
+    <button class="slds-button slds-button_destructive" (click)="confirmDiscardChanges()">Discard Changes</button>
+    <button class="slds-button slds-button_neutral" (click)="cancelDiscardChanges()">Cancel</button>
+  </ng-template>
+</ngl-modal>
+<!-- Discard Changes Modal -->
+
+<!-- Save Confirmation Modal -->
+<ngl-modal [open]="saveModalOpen" [directional]='true' [dismissOnClickOutside]='false'>
+  <ng-template nglModalHeader>
+    Save Child Header
+  </ng-template>
+  <ng-template nglModalTagline>
+    Save Tagline
+  </ng-template>
+  <div class="slds-p-around_medium">
+    Save Body
+  </div>
+  <ng-template nglModalFooter>
+    <button class="slds-button slds-button_brand" (click)="confirmSave()">Save</button>
+    <button class="slds-button slds-button_neutral" (click)="cancelSave()">Cancel</button>
+  </ng-template>
+</ngl-modal>
+<!-- Save Confirmation Modal -->

@@ -8,7 +8,7 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
 })
 export class ChildComponent {
   editing: boolean = false;
-  changed: boolean = true;
+  changed: boolean = false;
 
   discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;
