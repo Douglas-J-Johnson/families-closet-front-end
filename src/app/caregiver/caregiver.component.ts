@@ -22,17 +22,20 @@ export class CaregiverComponent {
   // Discard Changes and Discard Changes modal methods
   discardChanges(): void {
     console.log('Discard caregiver changes');
-    this.saveModalOpen = true;
+    this.discardChangesModalOpen = true;
   }
 
   confirmDiscardChanges(): void {
     console.log('Caregiver changes discarded');
-    this.saveModalOpen = false;
+    this.discardChangesModalOpen = false;
+    // Return values to initial values
+    this.editing = false;
+    this.changed = false;
   }
 
   cancelDiscardChanges(): void {
     console.log('Cancel discard caregiver changes');
-    this.saveModalOpen = false;
+    this.discardChangesModalOpen = false;
   }
 
   // Save and Save Confirmation modal methods
@@ -44,6 +47,9 @@ export class CaregiverComponent {
   confirmSave(): void {
     console.log('caregiver Saved');
     this.saveModalOpen = false;
+    // Perform save
+    this.editing = false;
+    this.changed = false;
   }
 
   cancelSave(): void {
@@ -60,6 +66,7 @@ export class CaregiverComponent {
   confirmRemove(): void {
     console.log('caregiver Removed');
     this.removeModalOpen = false;
+    // Remove object
   }
 
   cancelRemove(): void {

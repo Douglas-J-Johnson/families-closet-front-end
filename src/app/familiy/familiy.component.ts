@@ -37,17 +37,20 @@ export class FamiliyComponent {
   // Discard Changes and Discard Changes modal methods
   discardChanges(): void {
     console.log('Discard family information changes');
-    this.saveModalOpen = true;
+    this.discardChangesModalOpen = true;
   }
 
   confirmDiscardChanges(): void {
     console.log('Family information changes discarded');
-    this.saveModalOpen = false;
+    this.discardChangesModalOpen = false;
+    // Return values to initial values
+    this.editing = false;
+    this.changed = false;
   }
 
   cancelDiscardChanges(): void {
     console.log('Cancel discard family information changes');
-    this.saveModalOpen = false;
+    this.discardChangesModalOpen = false;
   }
 
   // Save and Save Confirmation modal methods
@@ -59,6 +62,9 @@ export class FamiliyComponent {
   confirmSave(): void {
     console.log('Family information saved');
     this.saveModalOpen = false;
+    // Perform save
+    this.editing = false;
+    this.changed = false;
   }
 
   cancelSave(): void {

@@ -32,17 +32,20 @@ export class ChildComponent {
   // Discard Changes and Discard Changes modal methods
   discardChanges(): void {
     console.log('Discard child changes');
-    this.saveModalOpen = true;
+    this.discardChangesModalOpen = true;
   }
 
   confirmDiscardChanges(): void {
     console.log('Child changes discarded');
-    this.saveModalOpen = false;
+    this.discardChangesModalOpen = false;
+    // Return values to initial values
+    this.editing = false;
+    this.changed = false;
   }
 
   cancelDiscardChanges(): void {
     console.log('Cancel discard child changes');
-    this.saveModalOpen = false;
+    this.discardChangesModalOpen = false;
   }
 
   // Save and Save Confirmation modal methods
@@ -54,6 +57,9 @@ export class ChildComponent {
   confirmSave(): void {
     console.log('Child Saved');
     this.saveModalOpen = false;
+    // Perform save
+    this.editing = false;
+    this.changed = false;
   }
 
   cancelSave(): void {
@@ -70,6 +76,7 @@ export class ChildComponent {
   confirmRemove(): void {
     console.log('Child Removed');
     this.removeModalOpen = false;
+    // Remove object
   }
 
   cancelRemove(): void {
