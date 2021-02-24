@@ -3,24 +3,39 @@
     <ngl-expandable-section title="Family Information" [(open)]="familySectionOpen" [collapsable]='true'>
       <div class="slds-grid slds-grid_vertical">
         <div class="slds-col slds-p-horizontal_x-small">
-          <ngl-input label="Family Display Name">
-            <input ngl type="input" required='true' placeholder="Enter name to display for your family">
+          <ngl-input
+          label="Family Display Name"
+          fieldLevelHelpTooltip="Test"
+          [error]='false'>
+            <input ngl
+            type="input"
+            required='true'
+            placeholder="Enter name to display for your family">
           </ngl-input>
         </div>
         <div class="slds-col slds-p-horizontal_x-small">
-          <ngl-input label="Actual Location">
-            <input ngl type="input">
+          <ngl-input
+          label="Actual Location"
+          fieldLevelHelpTooltip="Test"
+          [error]='false'>
+            <input ngl
+            type="input"
+            placeholder="TBD">
           </ngl-input>
         </div>
         <div class="slds-col slds-p-horizontal_x-small">
-          <ngl-input label="Display Location">
-            <input ngl type="input">
+          <ngl-input
+          label="Display Location"
+          fieldLevelHelpTooltip="Test"
+          [error]='false'>
+            <input ngl
+              type="input"
+              placeholder="TBD">
           </ngl-input>
         </div>
         <div class="slds-grid slds-wrap slds-grid_align-end slds-p-horizontal_x-small slds-m-vertical_medium">
           <div *ngIf="!editing" class="slds-col slds-p-around_xx-small">
-            <button
-              nglButton
+            <button nglButton
               title="Edit"
               type="button"
               variant="brand"
