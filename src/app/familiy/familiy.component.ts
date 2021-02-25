@@ -1,11 +1,13 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-familiy',
   templateUrl: './familiy.component.html',
   styleUrls: ['./familiy.component.scss']
 })
-export class FamiliyComponent {
+export class FamiliyComponent implements OnInit {
+  @Input() family: any;
+
   familySectionOpen: boolean = true;
   caregiversSectionOpen: boolean = true;
   childrenSectionOpen: boolean = true;
@@ -16,16 +18,20 @@ export class FamiliyComponent {
   discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;
 
+  ngOnInit(): void {
+    console.log('FAMILY', this.family);
+  }
+
   addCaregiver(): void {
-    console.log('Add Caregiver')
+    console.log('Add Caregiver');
   }
 
   caregiverPermissions(): void {
-    console.log('Caregiver Permissions')
+    console.log('Caregiver Permissions');
   }
 
   addChild(): void {
-    console.log('Add child')
+    console.log('Add child');
   }
 
   // Edit methods

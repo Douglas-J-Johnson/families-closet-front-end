@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy } from '@angular/core';
+import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -6,7 +6,9 @@ import { Component, ChangeDetectionStrategy } from '@angular/core';
   styleUrls: ['./child.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ChildComponent {
+export class ChildComponent implements OnInit {
+  @Input() child: any;
+
   editing: boolean = false;
   changed: boolean = false;
 
@@ -18,6 +20,10 @@ export class ChildComponent {
   sizes = '';
 
   birthdate: Date;
+
+  ngOnInit(): void {
+    console.log('CHILD', this.child);
+  }
 
   findPartners() {
     console.log('Find partners');

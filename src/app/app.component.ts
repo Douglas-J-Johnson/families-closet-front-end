@@ -9,13 +9,15 @@ import { BackEndService } from './back-end.service';
 })
 export class AppComponent implements OnInit {
   title = 'families-closet-front-end';
+  families: any = [];
 
   constructor(private backEndService: BackEndService) {}
 
   ngOnInit(): void {
     this.backEndService.getFamilies()
       .subscribe(response => {
-        console.log(response);
+        this.families = response;
+        console.log(this.families);
       }
       )
   }

@@ -74,8 +74,7 @@
     <ngl-expandable-section title="Caregivers" [(open)]="caregiversSectionOpen" [collapsable]='true'>
       <div class="slds-grid slds-grid_vertical">
         <div class="slds-col">
-          <app-caregiver></app-caregiver>
-          <app-caregiver></app-caregiver>
+          <app-caregiver *ngFor="let caregiver of family.caregivers; index as i" [caregiver]="caregiver"></app-caregiver>
         </div>
         <div class="slds-grid slds-wrap slds-grid_align-end slds-m-top_x-small slds-m-bottom_medium">
           <div class="slds-col slds-p-around_xx-small">
@@ -110,8 +109,7 @@
     <ngl-expandable-section title="Children" [(open)]="childrenSectionOpen" [collapsable]='true'>
       <div class="slds-grid slds-grid_vertical">
         <div class="slds-col">
-          <app-child></app-child>
-          <app-child></app-child>
+          <app-child *ngFor="let child of family.children; index as i" [child]="child"></app-child>
         </div>
         <div class="slds-grid slds-grid_align-end slds-m-top_x-small slds-m-bottom_medium">
           <div class="slds-col slds-p-around_xx-small">
