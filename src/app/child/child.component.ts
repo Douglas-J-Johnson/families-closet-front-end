@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, ChangeDetectionStrategy, Output } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -8,6 +8,8 @@ import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core
 })
 export class ChildComponent implements OnInit {
   @Input() child: any;
+  @Output() childEditing = new EventEmitter;
+  @Output() childChanged = new EventEmitter;
 
   discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;
@@ -28,6 +30,7 @@ export class ChildComponent implements OnInit {
   edit(): void {
     console.log('Edit child');
     this.child.editing = true;
+    this.childEditing.emit(this.child.id);
   }
 
   // Discard Changes and Discard Changes modal methods

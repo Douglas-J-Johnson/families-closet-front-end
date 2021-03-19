@@ -5,7 +5,7 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
   templateUrl: './family.component.html',
   styleUrls: ['./family.component.scss']
 })
-export class FamilyComponent implements OnInit, OnChanges {
+export class FamilyComponent implements OnInit {
   @Input() family: any;
 
   familySectionOpen: boolean = true;
@@ -34,8 +34,20 @@ export class FamilyComponent implements OnInit, OnChanges {
     })
   }
 
-  ngOnChanges(): void {
-    console.log("Changed", this.family);
+  caregiverEditing(caregiverID): void {
+    console.log("Editing Caregiver", caregiverID);
+  }
+
+  caregiverChanged(caregiverID): void {
+    console.log("Caregiver Changed", caregiverID);
+  }
+
+  childEditing(childID): void {
+    console.log("Editing Child", childID);
+  }
+
+  childChanged(childID): void {
+    console.log("Child Changed", childID);
   }
 
   addCaregiver(): void {

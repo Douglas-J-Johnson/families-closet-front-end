@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-caregiver',
@@ -7,6 +7,8 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class CaregiverComponent implements OnInit {
   @Input() caregiver: any;
+  @Output() caregiverEditing = new EventEmitter;
+  @Output() caregiverChanged = new EventEmitter;
 
   discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;
@@ -20,6 +22,7 @@ export class CaregiverComponent implements OnInit {
   edit(): void {
     console.log('Edit caregiver');
     this.caregiver.editing = true;
+    this.caregiverEditing.emit(this.caregiver.id);
   }
 
   // Discard Changes and Discard Changes modal methods
