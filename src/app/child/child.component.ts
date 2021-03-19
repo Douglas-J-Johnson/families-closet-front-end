@@ -9,17 +9,12 @@ import { Component, Input, OnInit, ChangeDetectionStrategy } from '@angular/core
 export class ChildComponent implements OnInit {
   @Input() child: any;
 
-  editing: boolean = false;
-  changed: boolean = false;
-
   discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;
   removeModalOpen: boolean = false;
 
   genders = ['Male', 'Female', 'No Preference'];
   sizes = '';
-
-  birthdate: Date;
 
   ngOnInit(): void {
     console.log('CHILD', this.child);
@@ -32,7 +27,7 @@ export class ChildComponent implements OnInit {
   // Edit methods
   edit(): void {
     console.log('Edit child');
-    this.editing = true;
+    this.child.editing = true;
   }
 
   // Discard Changes and Discard Changes modal methods
@@ -45,8 +40,8 @@ export class ChildComponent implements OnInit {
     console.log('Child changes discarded');
     this.discardChangesModalOpen = false;
     // Return values to initial values
-    this.editing = false;
-    this.changed = false;
+    this.child.editing = false;
+    this.child.changed = false;
   }
 
   cancelDiscardChanges(): void {
@@ -64,8 +59,8 @@ export class ChildComponent implements OnInit {
     console.log('Child Saved');
     this.saveModalOpen = false;
     // Perform save
-    this.editing = false;
-    this.changed = false;
+    this.child.editing = false;
+    this.child.changed = false;
   }
 
   cancelSave(): void {

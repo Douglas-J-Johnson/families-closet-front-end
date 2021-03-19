@@ -5,21 +5,30 @@
     </div>
     <div class="slds-col slds-p-horizontal_xx-small">
       <ngl-input label="First Name">
-        <input ngl type="input" placeholder="Enter your first name">
+        <input ngl
+        type="input"
+        placeholder="Enter your first name"
+        [value]="caregiver.first_name">
       </ngl-input>
     </div>
     <div class="slds-col slds-p-horizontal_xx-small">
       <ngl-input label="Last Name">
-        <input ngl type="input" placeholder="Enter your last name">
+        <input ngl
+        type="input"
+        placeholder="Enter your last name"
+        [value]="caregiver.last_name">
       </ngl-input>
     </div>
     <div class="slds-col slds-p-horizontal_xx-small">
       <ngl-input label="Email Address">
-        <input ngl type="input" placeholder="Enter your email">
+        <input ngl
+        type="input"
+        placeholder="Enter your email"
+        [value]="caregiver.email">
       </ngl-input>
     </div>
     <div class="slds-grid slds-grid_align-end slds-m-top_small">
-      <div *ngIf="!editing" class="slds-col slds-p-around_xx-small">
+      <div *ngIf="!caregiver.editing" class="slds-col slds-p-around_xx-small">
         <button
           nglButton
           title="Edit"
@@ -30,29 +39,29 @@
             Edit
         </button>
       </div>
-      <div *ngIf="editing" class="slds-col slds-p-around_xx-small" >
+      <div *ngIf="caregiver.editing" class="slds-col slds-p-around_xx-small" >
         <button
           nglButton
           class="slds-button"
-          [class.slds-button_brand] = "changed"
+          [class.slds-button_brand] = "caregiver.changed"
           iconName="utility:save"
-          [disabled]="!changed"
+          [disabled]="!caregiver.changed"
           (click)="save()">
             Save
         </button>
       </div>
-      <div *ngIf="editing" class="slds-col slds-p-around_xx-small" >
+      <div *ngIf="caregiver.editing" class="slds-col slds-p-around_xx-small" >
         <button
           nglButton
           class="slds-button"
-          [class.slds-button_destructive] = "changed"
+          [class.slds-button_destructive] = "caregiver.changed"
           iconName="utility:delete"
-          [disabled]="!changed"
+          [disabled]="!caregiver.changed"
           (click)="discardChanges()">
             Discard Changes
         </button>
       </div>
-      <div *ngIf="!editing" class="slds-col slds-p-around_xx-small">
+      <div *ngIf="!caregiver.editing" class="slds-col slds-p-around_xx-small">
         <button
           nglButton
           class="slds-button slds-button_destructive"

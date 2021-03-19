@@ -20,6 +20,18 @@ export class FamiliyComponent implements OnInit {
 
   ngOnInit(): void {
     console.log('FAMILY', this.family);
+
+    console.log('Caregivers w/o state', this.family.caregivers);
+
+    this.family.caregivers.forEach(caregiver => {
+      caregiver.editing = false;
+      caregiver.changed = false;
+    });
+
+    this.family.children.forEach(child => {
+      child.editing = false;
+      child.changed = false;
+    })
   }
 
   addCaregiver(): void {

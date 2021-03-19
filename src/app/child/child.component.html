@@ -2,11 +2,18 @@
   <div class="slds-grid slds-grid_vertical slds-m-around_x-small">
     <div class="slds-col slds-p-horizontal_xx-small">
       <ngl-input label="First Name">
-        <input ngl type="input" placeholder="Enter child's first name">
+        <input ngl
+        type="input"
+        placeholder="Enter child's first name"
+        [value]="child.first_name">
       </ngl-input>
     </div>
     <div class="slds-col slds-p-horizontal_xx-small">
-      <ngl-datepicker-input label="Birthdate" [(value)]="birthdate" format="middle-endian" patternPlaceholder>
+      <ngl-datepicker-input
+      label="Birthdate"
+      [(value)]="child.birthdate"
+      format="middle-endian"
+      patternPlaceholder>
         <input nglDatepickerInput type="text">
       </ngl-datepicker-input>
     </div>
@@ -16,7 +23,7 @@
           <div class="slds-grid slds-grid_vertical">
             <div class="slds-col slds-p-around_xx-small">
               <ngl-checkbox-toggle label="Give" enabledText="Yes" disabledText="No">
-                <input ngl type="checkbox">
+                <input ngl type="checkbox" [(checked)]="child.give">
               </ngl-checkbox-toggle>
             </div>
             <div class="slds-col slds-p-horizontal_xx-small">
@@ -36,7 +43,7 @@
             <div class="slds-grid">
               <div class="slds-col slds-p-around_xx-small">
                 <ngl-checkbox-toggle label="Receive" enabledText="Yes" disabledText="No">
-                  <input ngl type="checkbox">
+                  <input ngl type="checkbox" [(checked)]="child.receive">
                 </ngl-checkbox-toggle>
               </div>
               <div class="slds-col slds-p-around_xx-small">
@@ -64,7 +71,7 @@
       </div>
     </div>
     <div class="slds-grid slds-grid_align-end">
-      <div *ngIf="!editing" class="slds-col slds-p-around_xx-small">
+      <div *ngIf="!child.editing" class="slds-col slds-p-around_xx-small">
         <button
           nglButton
           title="Edit"
@@ -75,7 +82,7 @@
             Edit
         </button>
       </div>
-      <div *ngIf="editing" class="slds-col slds-p-around_xx-small" >
+      <div *ngIf="child.editing" class="slds-col slds-p-around_xx-small" >
         <button
           nglButton
           class="slds-button"
@@ -86,7 +93,7 @@
             Save
         </button>
       </div>
-      <div *ngIf="editing" class="slds-col slds-p-around_xx-small" >
+      <div *ngIf="child.editing" class="slds-col slds-p-around_xx-small" >
         <button
           nglButton
           class="slds-button"
@@ -97,7 +104,7 @@
             Discard Changes
         </button>
       </div>
-      <div *ngIf="!editing" class="slds-col slds-p-around_xx-small">
+      <div *ngIf="!child.editing" class="slds-col slds-p-around_xx-small">
         <button
           nglButton
           class="slds-button slds-button_destructive"

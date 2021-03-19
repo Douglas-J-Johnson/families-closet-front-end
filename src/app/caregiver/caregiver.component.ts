@@ -8,9 +8,6 @@ import { Component, Input, OnInit } from '@angular/core';
 export class CaregiverComponent implements OnInit {
   @Input() caregiver: any;
 
-  editing: boolean = false;
-  changed: boolean = false;
-
   discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;
   removeModalOpen: boolean = false;
@@ -22,7 +19,7 @@ export class CaregiverComponent implements OnInit {
   // Edit methods
   edit(): void {
     console.log('Edit caregiver');
-    this.editing = true;
+    this.caregiver.editing = true;
   }
 
   // Discard Changes and Discard Changes modal methods
@@ -35,8 +32,8 @@ export class CaregiverComponent implements OnInit {
     console.log('Caregiver changes discarded');
     this.discardChangesModalOpen = false;
     // Return values to initial values
-    this.editing = false;
-    this.changed = false;
+    this.caregiver.editing = false;
+    this.caregiver.changed = false;
   }
 
   cancelDiscardChanges(): void {
@@ -54,8 +51,8 @@ export class CaregiverComponent implements OnInit {
     console.log('caregiver Saved');
     this.saveModalOpen = false;
     // Perform save
-    this.editing = false;
-    this.changed = false;
+    this.caregiver.editing = false;
+    this.caregiver.changed = false;
   }
 
   cancelSave(): void {
