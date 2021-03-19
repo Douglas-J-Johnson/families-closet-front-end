@@ -6,7 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NglModule } from 'ng-lightning';
 import { ChildComponent } from './child/child.component';
-import { FamiliyComponent } from './familiy/familiy.component';
+import { FamilyComponent } from './family/family.component';
 import { CaregiverComponent } from './caregiver/caregiver.component';
 import { FamilySummaryComponent } from './family-summary/family-summary.component';
 
@@ -14,7 +14,7 @@ import { FamilySummaryComponent } from './family-summary/family-summary.componen
   declarations: [
     AppComponent,
     ChildComponent,
-    FamiliyComponent,
+    FamilyComponent,
     CaregiverComponent,
     FamilySummaryComponent
   ],

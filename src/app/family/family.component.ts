@@ -1,11 +1,11 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-familiy',
-  templateUrl: './familiy.component.html',
-  styleUrls: ['./familiy.component.scss']
+  selector: 'app-family',
+  templateUrl: './family.component.html',
+  styleUrls: ['./family.component.scss']
 })
-export class FamiliyComponent implements OnInit {
+export class FamilyComponent implements OnInit, OnChanges {
   @Input() family: any;
 
   familySectionOpen: boolean = true;
@@ -32,6 +32,10 @@ export class FamiliyComponent implements OnInit {
       child.editing = false;
       child.changed = false;
     })
+  }
+
+  ngOnChanges(): void {
+    console.log("Changed", this.family);
   }
 
   addCaregiver(): void {
