@@ -68,6 +68,11 @@ export class FamilyComponent implements OnInit {
     this.editing = true;
   }
 
+  cancelEditing(): void {
+    console.log('Family editing cancelled');
+    this.editing = false;
+  }
+
   // Discard Changes and Discard Changes modal methods
   discardChanges(): void {
     console.log('Discard family information changes');

@@ -58,7 +58,7 @@
                 Save
             </button>
           </div>
-          <div *ngIf="editing" class="slds-col slds-p-around_xx-small" >
+          <div *ngIf="editing && changed" class="slds-col slds-p-around_xx-small" >
             <button
               nglButton
               class="slds-button"
@@ -67,6 +67,17 @@
               [disabled]="!changed"
               (click)="discardChanges()">
                 Discard Changes
+            </button>
+          </div>
+          <div *ngIf="editing && !changed" class="slds-col slds-p-around_xx-small" >
+            <button
+              nglButton
+              class="slds-button"
+              variant="brand"
+              iconName="action:reject"
+              [disabled]="changed"
+              (click)="cancelEditing()">
+                Cancel Editing
             </button>
           </div>
         </div>

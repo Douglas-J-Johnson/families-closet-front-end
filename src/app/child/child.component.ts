@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, ChangeDetectionStrategy, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, ChangeDetectionStrategy, Output, enableProdMode } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -31,6 +31,11 @@ export class ChildComponent implements OnInit {
     console.log('Edit child');
     this.child.editing = true;
     this.childEditing.emit(this.child.id);
+  }
+
+  cancelEditing(): void {
+    console.log('Child editing cancelled');
+    this.child.editing = false;
   }
 
   // Discard Changes and Discard Changes modal methods

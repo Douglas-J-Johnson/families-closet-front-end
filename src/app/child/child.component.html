@@ -86,22 +86,33 @@
         <button
           nglButton
           class="slds-button"
-          [class.slds-button_brand] = "changed"
+          [class.slds-button_brand] = "child.changed"
           iconName="utility:save"
-          [disabled]="!changed"
+          [disabled]="!child.changed"
           (click)="save()">
             Save
         </button>
       </div>
-      <div *ngIf="child.editing" class="slds-col slds-p-around_xx-small" >
+      <div *ngIf="child.editing && child.changed" class="slds-col slds-p-around_xx-small" >
         <button
           nglButton
           class="slds-button"
-          [class.slds-button_destructive] = "changed"
+          [class.slds-button_destructive] = "child.changed"
           iconName="utility:delete"
-          [disabled]="!changed"
+          [disabled]="!child.changed"
           (click)="discardChanges()">
             Discard Changes
+        </button>
+      </div>
+      <div *ngIf="child.editing && !child.changed" class="slds-col slds-p-around_xx-small" >
+        <button
+          nglButton
+          class="slds-button"
+          variant="brand"
+          iconName="action:reject"
+          [disabled]="child.changed"
+          (click)="cancelEditing()">
+            Cancel Editing
         </button>
       </div>
       <div *ngIf="!child.editing" class="slds-col slds-p-around_xx-small">

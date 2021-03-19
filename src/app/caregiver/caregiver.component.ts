@@ -25,6 +25,11 @@ export class CaregiverComponent implements OnInit {
     this.caregiverEditing.emit(this.caregiver.id);
   }
 
+  cancelEditing(): void {
+    console.log('Caregiver editing cancelled');
+    this.caregiver.editing = false;
+  }
+
   // Discard Changes and Discard Changes modal methods
   discardChanges(): void {
     console.log('Discard caregiver changes');
