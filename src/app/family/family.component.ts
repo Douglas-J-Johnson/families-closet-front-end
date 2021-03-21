@@ -65,10 +65,6 @@ export class FamilyComponent implements OnInit {
     )
   }
 
-  caregiverPermissions(): void {
-    console.log('Caregiver Permissions');
-  }
-
   addChild(): void {
     console.log('Add child');
     this.family.children.push(
