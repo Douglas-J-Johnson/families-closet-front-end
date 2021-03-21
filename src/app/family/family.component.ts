@@ -52,6 +52,17 @@ export class FamilyComponent implements OnInit {
 
   addCaregiver(): void {
     console.log('Add Caregiver');
+    this.family.caregivers.push(
+      {
+        changed: false,
+        editing: true,
+        email: "",
+        family_id: this.family.id,
+        first_name: "",
+        id: 0,
+        last_name: ""
+      }
+    )
   }
 
   caregiverPermissions(): void {
@@ -60,6 +71,20 @@ export class FamilyComponent implements OnInit {
 
   addChild(): void {
     console.log('Add child');
+    this.family.children.push(
+      {
+        birthdate: (new Date).toString(),
+        changed: false,
+        editing: true,
+        family_id: this.family.id,
+        first_name: "",
+        give: false,
+        give_gender_preference: "",
+        id: 0,
+        receive: false,
+        receive_gender_preference: "",
+      }
+    )
   }
 
   // Edit methods
