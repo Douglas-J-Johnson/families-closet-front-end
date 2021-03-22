@@ -98,9 +98,12 @@
           <div class="slds-col slds-p-around_xx-small">
             <button
               nglButton
-              title="Add Caregiver"
               type="button"
-              variant="brand"
+              title="Add Caregiver"
+              class="slds-button"
+              [class.slds-button_brand]="!hasNewCaregiver()"
+              [class.slds-button_neutral]="hasNewCaregiver()"
+              [disabled]="hasNewCaregiver()"
               iconName="utility:adduser"
               iconPosition="right"
               (click)="addCaregiver()">
@@ -127,7 +130,10 @@
               nglButton
               title="Add Child"
               type="button"
-              variant="brand"
+              class="slds-button"
+              [class.slds-button_brand]="!hasNewChild()"
+              [class.slds-button_neutral]="hasNewChild()"
+              [disabled]="hasNewChild()"
               iconName="utility:adduser"
               iconPosition="right"
               (click)="addChild()">

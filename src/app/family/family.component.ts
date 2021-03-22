@@ -51,36 +51,62 @@ export class FamilyComponent implements OnInit {
   }
 
   addCaregiver(): void {
-    console.log('Add Caregiver');
-    this.family.caregivers.push(
-      {
-        changed: false,
-        editing: true,
-        email: "",
-        family_id: this.family.id,
-        first_name: "",
-        id: 0,
-        last_name: ""
-      }
-    )
+    console.log('Add Caregiver', this.hasNewCaregiver());
+
+    if(!this.hasNewCaregiver()) {
+      this.family.caregivers.push(
+        {
+          changed: false,
+          editing: true,
+          email: "",
+          family_id: this.family.id,
+          first_name: "new",
+          id: 0,
+          last_name: ""
+        }
+      )
+    }
+  }
+
+  hasNewCaregiver(): boolean {
+    let newFound: boolean = false;
+
+    this.family.caregivers.forEach(caregiver => {
+      if(caregiver.id === 0) newFound = true;
+    });
+
+    return newFound;
   }
 
   addChild(): void {
-    console.log('Add child');
-    this.family.children.push(
-      {
-        birthdate: (new Date).toString(),
-        changed: false,
-        editing: true,
-        family_id: this.family.id,
-        first_name: "",
-        give: false,
-        give_gender_preference: "",
-        id: 0,
-        receive: false,
-        receive_gender_preference: "",
-      }
-    )
+    console.log('Add child', this.hasNewChild());
+
+    if(!this.hasNewChild()) {
+      this.family.children.push(
+        {
+          birthdate: (new Date).toString(),
+          changed: false,
+          editing: true,
+          family_id: this.family.id,
+          first_name: "new",
+          give: false,
+          give_gender_preference: "",
+          id: 0,
+          receive: false,
+          receive_gender_preference: "",
+        }
+      );
+    }
+  }
+
+  hasNewChild(): boolean {
+    let newFound: boolean = false;
+
+    this.family.children.forEach(child => {
+      if(child.id === 0) newFound = true;
+    });
+
+    return newFound;
   }
 
   // Edit methods
