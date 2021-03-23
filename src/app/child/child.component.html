@@ -40,7 +40,9 @@
               [required]='false'
               [disabled]="!child.editing">
                 <ngl-radio-option *ngFor="let gender of genders" [label]="gender">
-                  <input ngl type="radio">
+                  <input ngl
+                  type="radio"
+                  [disabled]="!child.editing">
                 </ngl-radio-option>
               </fieldset>
             </div>
@@ -80,7 +82,9 @@
               [required]='false'
               [disabled]="!child.editing">
                 <ngl-radio-option *ngFor="let gender of genders" [label]="gender">
-                  <input ngl type="radio">
+                  <input ngl
+                  type="radio"
+                  [disabled]="!child.editing">
                 </ngl-radio-option>
               </fieldset>
             </div>
