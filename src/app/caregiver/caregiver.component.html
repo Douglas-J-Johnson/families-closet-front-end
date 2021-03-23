@@ -8,7 +8,8 @@
         <input ngl
         type="input"
         placeholder="Enter your first name"
-        [value]="caregiver.first_name">
+        [value]="caregiver.first_name"
+        [readonly]="!caregiver.editing">
       </ngl-input>
     </div>
     <div class="slds-col slds-p-horizontal_xx-small">
@@ -16,7 +17,8 @@
         <input ngl
         type="input"
         placeholder="Enter your last name"
-        [value]="caregiver.last_name">
+        [value]="caregiver.last_name"
+        [readonly]="!caregiver.editing">
       </ngl-input>
     </div>
     <div class="slds-col slds-p-horizontal_xx-small">
@@ -24,7 +26,8 @@
         <input ngl
         type="input"
         placeholder="Enter your email"
-        [value]="caregiver.email">
+        [value]="caregiver.email"
+        [readonly]="!caregiver.editing">
       </ngl-input>
     </div>
     <div class="slds-grid slds-grid_align-end slds-m-top_small">

@@ -19,9 +19,7 @@ export class FamilyComponent implements OnInit {
   saveModalOpen: boolean = false;
 
   ngOnInit(): void {
-    console.log('FAMILY', this.family);
-
-    console.log('Caregivers w/o state', this.family.caregivers);
+    // console.log('FAMILY', this.family);
 
     this.family.caregivers.forEach(caregiver => {
       caregiver.editing = false;

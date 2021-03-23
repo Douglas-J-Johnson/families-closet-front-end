@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
     this.backEndService.getFamilies()
       .subscribe(response => {
         this.families = response;
-        console.log(this.families);
+        // console.log('Families', this.families);
       }
       )
   }

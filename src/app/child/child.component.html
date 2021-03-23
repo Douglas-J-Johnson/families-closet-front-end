@@ -5,7 +5,8 @@
         <input ngl
         type="input"
         placeholder="Enter child's first name"
-        [value]="child.first_name">
+        [value]="child.first_name"
+        [readonly]="!child.editing">
       </ngl-input>
     </div>
     <div class="slds-col slds-p-horizontal_xx-small">
@@ -13,8 +14,10 @@
       label="Birthdate"
       [(value)]="child.birthdate"
       format="middle-endian"
-      patternPlaceholder>
-        <input nglDatepickerInput type="text">
+      patternPlaceholder
+      [disabled]="!child.editing">
+        <input nglDatepickerInput type="text"
+        [readonly]="!child.editing">
       </ngl-datepicker-input>
     </div>
     <div class="slds-grid slds-wrap slds-m-top_small">
@@ -23,12 +26,19 @@
           <div class="slds-grid slds-grid_vertical">
             <div class="slds-col slds-p-around_xx-small">
               <ngl-checkbox-toggle label="Give" enabledText="Yes" disabledText="No">
-                <input ngl type="checkbox" [(checked)]="child.give">
+                <input ngl
+                type="checkbox"
+                [(checked)]="child.give"
+                [disabled]="!child.editing">
               </ngl-checkbox-toggle>
             </div>
             <div class="slds-col slds-p-horizontal_xx-small">
               <ng-template #groupLabel>Clothing Gender Preference</ng-template>
-              <fieldset ngl-radio-group [label]="groupLabel" [required]='false' type="button">
+              <fieldset ngl-radio-group
+              type="button"
+              [label]="groupLabel"
+              [required]='false'
+              [disabled]="!child.editing">
                 <ngl-radio-option *ngFor="let gender of genders" [label]="gender">
                   <input ngl type="radio">
                 </ngl-radio-option>
@@ -43,7 +53,10 @@
             <div class="slds-grid">
               <div class="slds-col slds-p-around_xx-small">
                 <ngl-checkbox-toggle label="Receive" enabledText="Yes" disabledText="No">
-                  <input ngl type="checkbox" [(checked)]="child.receive">
+                  <input ngl
+                  type="checkbox"
+                  [(checked)]="child.receive"
+                  [disabled]="!child.editing">
                 </ngl-checkbox-toggle>
               </div>
               <div class="slds-col slds-p-around_xx-small">
@@ -53,14 +66,19 @@
                   type="button"
                   variant="brand"
                   iconName="standard:search"
-                  (click)="findPartners()">
+                  (click)="findPartners()"
+                  [disabled]="!child.editing">
                     Find Partners
                 </button>
               </div>
             </div>
             <div class="slds-col slds-p-horizontal_xx-small">
               <ng-template #groupLabel>Clothing Gender Preference</ng-template>
-              <fieldset ngl-radio-group [label]="groupLabel" [required]='false' type="button">
+              <fieldset ngl-radio-group
+              type="button"
+              [label]="groupLabel"
+              [required]='false'
+              [disabled]="!child.editing">
                 <ngl-radio-option *ngFor="let gender of genders" [label]="gender">
                   <input ngl type="radio">
                 </ngl-radio-option>

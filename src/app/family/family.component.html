@@ -11,7 +11,8 @@
             type="input"
             required='true'
             placeholder="Enter name to display for your family"
-            [value]="family.display_name">
+            [value]="family.display_name"
+            [readonly]="!editing">
           </ngl-input>
         </div>
         <div class="slds-col slds-p-horizontal_x-small">
@@ -22,7 +23,8 @@
             <input ngl
             type="input"
             placeholder="TBD"
-            [value]="family.location_actual">
+            [value]="family.location_actual"
+            [readonly]="!editing">
           </ngl-input>
         </div>
         <div class="slds-col slds-p-horizontal_x-small">
@@ -33,7 +35,8 @@
             <input ngl
             type="input"
             placeholder="TBD"
-            [value]="family.location_display">
+            [value]="family.location_display"
+            [readonly]="!editing">
           </ngl-input>
         </div>
         <div class="slds-grid slds-wrap slds-grid_align-end slds-p-horizontal_x-small slds-m-vertical_medium">

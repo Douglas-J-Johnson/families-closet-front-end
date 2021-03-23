@@ -19,7 +19,7 @@ export class ChildComponent implements OnInit {
   sizes = '';
 
   ngOnInit(): void {
-    console.log('CHILD', this.child);
+    // console.log('CHILD', this.child);
   }
 
   findPartners() {

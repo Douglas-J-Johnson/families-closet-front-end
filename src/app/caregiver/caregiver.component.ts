@@ -15,7 +15,7 @@ export class CaregiverComponent implements OnInit {
   removeModalOpen: boolean = false;
 
   ngOnInit(): void {
-    console.log('CAREGIVER', this.caregiver);
+    // console.log('CAREGIVER', this.caregiver);
   }
 
   // Edit methods
