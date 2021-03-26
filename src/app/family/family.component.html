@@ -1,90 +1,95 @@
 <div class="slds-grid slds-grid_vertical slds-p-around_x-small">
   <div class="slds-col slds-p-horizontal_xx-small">
     <ngl-expandable-section title="Family Information" [(open)]="familySectionOpen" [collapsable]='true'>
-      <div class="slds-grid slds-grid_vertical">
-        <div class="slds-col slds-p-horizontal_x-small">
-          <ngl-input
-          label="Family Display Name"
-          fieldLevelHelpTooltip="Test"
-          [error]='false'>
-            <input ngl
-            type="input"
-            required='true'
-            placeholder="Enter name to display for your family"
-            [value]="family.display_name"
-            [readonly]="!editing">
-          </ngl-input>
-        </div>
-        <div class="slds-col slds-p-horizontal_x-small">
-          <ngl-input
-          label="Actual Location"
-          fieldLevelHelpTooltip="Test"
-          [error]='false'>
-            <input ngl
-            type="input"
-            placeholder="TBD"
-            [value]="family.location_actual"
-            [readonly]="!editing">
-          </ngl-input>
-        </div>
-        <div class="slds-col slds-p-horizontal_x-small">
-          <ngl-input
-          label="Display Location"
-          fieldLevelHelpTooltip="Test"
-          [error]='false'>
-            <input ngl
-            type="input"
-            placeholder="TBD"
-            [value]="family.location_display"
-            [readonly]="!editing">
-          </ngl-input>
-        </div>
-        <div class="slds-grid slds-wrap slds-grid_align-end slds-p-horizontal_x-small slds-m-vertical_medium">
-          <div *ngIf="!editing" class="slds-col slds-p-around_xx-small">
-            <button nglButton
-              title="Edit"
-              type="button"
-              variant="brand"
-              iconName="utility:edit"
-              (click)="edit()">
-                Edit
-            </button>
+      <form [formGroup]="familyForm">
+        <div class="slds-grid slds-grid_vertical">
+          <div class="slds-col slds-p-horizontal_x-small">
+            <ngl-input
+            label="Family Display Name"
+            fieldLevelHelpTooltip="Test"
+            [error]='false'>
+              <input ngl
+              formControlName="displayName"
+              type="input"
+              required='true'
+              placeholder="Enter name to display for your family"
+              [value]="family.display_name"
+              [readonly]="!editing">
+            </ngl-input>
           </div>
-          <div *ngIf="editing" class="slds-col slds-p-around_xx-small" >
-            <button
-              nglButton
-              class="slds-button"
-              [class.slds-button_brand] = "changed"
-              iconName="utility:save"
-              [disabled]="!changed"
-              (click)="save()">
-                Save
-            </button>
+          <div class="slds-col slds-p-horizontal_x-small">
+            <ngl-input
+            label="Actual Location"
+            fieldLevelHelpTooltip="Test"
+            [error]='false'>
+              <input ngl
+              formControlName="locationActual"
+              type="input"
+              placeholder="TBD"
+              [value]="family.location_actual"
+              [readonly]="!editing">
+            </ngl-input>
           </div>
-          <div *ngIf="editing && changed" class="slds-col slds-p-around_xx-small" >
-            <button
-              nglButton
-              class="slds-button"
-              [class.slds-button_destructive] = "changed"
-              iconName="utility:delete"
-              [disabled]="!changed"
-              (click)="discardChanges()">
-                Discard Changes
-            </button>
+          <div class="slds-col slds-p-horizontal_x-small">
+            <ngl-input
+            label="Display Location"
+            fieldLevelHelpTooltip="Test"
+            [error]='false'>
+              <input ngl
+              formControlName="locationDisplay"
+              type="input"
+              placeholder="TBD"
+              [value]="family.location_display"
+              [readonly]="!editing">
+            </ngl-input>
           </div>
-          <div *ngIf="editing && !changed" class="slds-col slds-p-around_xx-small" >
-            <button
-              nglButton
-              class="slds-button"
-              variant="brand"
-              iconName="action:reject"
-              [disabled]="changed"
-              (click)="cancelEditing()">
-                Cancel Editing
-            </button>
+          <div class="slds-grid slds-wrap slds-grid_align-end slds-p-horizontal_x-small slds-m-vertical_medium">
+            <div *ngIf="!editing" class="slds-col slds-p-around_xx-small">
+              <button nglButton
+                title="Edit"
+                type="button"
+                variant="brand"
+                iconName="utility:edit"
+                (click)="edit()">
+                  Edit
+              </button>
+            </div>
+            <div *ngIf="editing" class="slds-col slds-p-around_xx-small" >
+              <button
+                nglButton
+                class="slds-button"
+                [class.slds-button_brand] = "changed"
+                iconName="utility:save"
+                [disabled]="!changed"
+                (click)="save()">
+                  Save
+              </button>
+            </div>
+            <div *ngIf="editing && changed" class="slds-col slds-p-around_xx-small" >
+              <button
+                nglButton
+                class="slds-button"
+                [class.slds-button_destructive] = "changed"
+                iconName="utility:delete"
+                [disabled]="!changed"
+                (click)="discardChanges()">
+                  Discard Changes
+              </button>
+            </div>
+            <div *ngIf="editing && !changed" class="slds-col slds-p-around_xx-small" >
+              <button
+                nglButton
+                class="slds-button"
+                variant="brand"
+                iconName="action:reject"
+                [disabled]="changed"
+                (click)="cancelEditing()">
+                  Cancel Editing
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </form>
     </ngl-expandable-section>
   </div>
   <div class="slds-col slds-p-horizontal_xx-small">

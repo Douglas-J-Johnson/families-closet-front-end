@@ -9,6 +9,7 @@ import { ChildComponent } from './child/child.component';
 import { FamilyComponent } from './family/family.component';
 import { CaregiverComponent } from './caregiver/caregiver.component';
 import { FamilySummaryComponent } from './family-summary/family-summary.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -22,6 +23,7 @@ import { FamilySummaryComponent } from './family-summary/family-summary.componen
     BrowserModule,
     HttpClientModule,
     AppRoutingModule,
+    ReactiveFormsModule,
     NglModule
   ],
   providers: [],

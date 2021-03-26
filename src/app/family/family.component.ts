@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-family',
@@ -7,6 +8,12 @@ import { Component, Input, OnChanges, OnInit } from '@angular/core';
 })
 export class FamilyComponent implements OnInit {
   @Input() family: any;
+
+  familyForm = new FormGroup ({
+    displayName: new FormControl(),
+    locationActual: new FormControl(),
+    locationDisplay: new FormControl()
+  });
 
   familySectionOpen: boolean = true;
   caregiversSectionOpen: boolean = true;
