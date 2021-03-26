@@ -1,3 +1,4 @@
+import { FormControl, FormGroup } from '@angular/forms';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
@@ -13,6 +14,12 @@ export class CaregiverComponent implements OnInit {
   discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;
   removeModalOpen: boolean = false;
+
+  caregiverForm = new FormGroup ({
+    firstName: new FormControl(),
+    lastName: new FormControl(),
+    email: new FormControl()
+  });
 
   ngOnInit(): void {
     // console.log('CAREGIVER', this.caregiver);

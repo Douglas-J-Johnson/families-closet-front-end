@@ -1,92 +1,97 @@
 <article class="slds-card slds-m-around_x-small">
-  <div class="slds-grid slds-grid_vertical slds-m-around_x-small">
-    <div class="slds-col slds-p-horizontal_xx-small">
-      <ngl-badge theme="inverse">Primary</ngl-badge>
-    </div>
-    <div class="slds-col slds-p-horizontal_xx-small">
-      <ngl-input label="First Name">
-        <input ngl
-        type="input"
-        placeholder="Enter your first name"
-        [value]="caregiver.first_name"
-        [readonly]="!caregiver.editing">
-      </ngl-input>
-    </div>
-    <div class="slds-col slds-p-horizontal_xx-small">
-      <ngl-input label="Last Name">
-        <input ngl
-        type="input"
-        placeholder="Enter your last name"
-        [value]="caregiver.last_name"
-        [readonly]="!caregiver.editing">
-      </ngl-input>
-    </div>
-    <div class="slds-col slds-p-horizontal_xx-small">
-      <ngl-input label="Email Address">
-        <input ngl
-        type="input"
-        placeholder="Enter your email"
-        [value]="caregiver.email"
-        [readonly]="!caregiver.editing">
-      </ngl-input>
-    </div>
-    <div class="slds-grid slds-grid_align-end slds-m-top_small">
-      <div *ngIf="!caregiver.editing" class="slds-col slds-p-around_xx-small">
-        <button
-          nglButton
-          title="Edit"
-          type="button"
-          variant="brand"
-          iconName="utility:edit"
-          (click)="edit()">
-            Edit
-        </button>
+  <form [formGroup]="caregiverForm">
+    <div class="slds-grid slds-grid_vertical slds-m-around_x-small">
+      <div class="slds-col slds-p-horizontal_xx-small">
+        <ngl-badge theme="inverse">Primary</ngl-badge>
       </div>
-      <div *ngIf="caregiver.editing" class="slds-col slds-p-around_xx-small" >
-        <button
-          nglButton
-          class="slds-button"
-          [class.slds-button_brand] = "caregiver.changed"
-          iconName="utility:save"
-          [disabled]="!caregiver.changed"
-          (click)="save()">
-            Save
-        </button>
+      <div class="slds-col slds-p-horizontal_xx-small">
+        <ngl-input label="First Name">
+          <input ngl
+          formControlName="firstName"
+          type="input"
+          placeholder="Enter your first name"
+          [value]="caregiver.first_name"
+          [readonly]="!caregiver.editing">
+        </ngl-input>
       </div>
-      <div *ngIf="caregiver.editing && caregiver.changed" class="slds-col slds-p-around_xx-small" >
-        <button
-          nglButton
-          class="slds-button"
-          [class.slds-button_destructive] = "caregiver.changed"
-          iconName="utility:delete"
-          [disabled]="!caregiver.changed"
-          (click)="discardChanges()">
-            Discard Changes
-        </button>
+      <div class="slds-col slds-p-horizontal_xx-small">
+        <ngl-input label="Last Name">
+          <input ngl
+          formControlName="lastName"
+          type="input"
+          placeholder="Enter your last name"
+          [value]="caregiver.last_name"
+          [readonly]="!caregiver.editing">
+        </ngl-input>
       </div>
-      <div *ngIf="caregiver.editing && !caregiver.changed" class="slds-col slds-p-around_xx-small" >
-        <button
-          nglButton
-          class="slds-button"
-          variant="brand"
-          iconName="action:reject"
-          [disabled]="caregiver.changed"
-          (click)="cancelEditing()">
-            Cancel Editing
-        </button>
+      <div class="slds-col slds-p-horizontal_xx-small">
+        <ngl-input label="Email Address">
+          <input ngl
+          formControlName="email"
+          type="input"
+          placeholder="Enter your email"
+          [value]="caregiver.email"
+          [readonly]="!caregiver.editing">
+        </ngl-input>
       </div>
-      <div *ngIf="!caregiver.editing" class="slds-col slds-p-around_xx-small">
-        <button
-          nglButton
-          class="slds-button slds-button_destructive"
-          iconName="action:remove"
-          iconPosition="right"
-          (click)="remove()">
-            Remove
-        </button>
+      <div class="slds-grid slds-grid_align-end slds-m-top_small">
+        <div *ngIf="!caregiver.editing" class="slds-col slds-p-around_xx-small">
+          <button
+            nglButton
+            title="Edit"
+            type="button"
+            variant="brand"
+            iconName="utility:edit"
+            (click)="edit()">
+              Edit
+          </button>
+        </div>
+        <div *ngIf="caregiver.editing" class="slds-col slds-p-around_xx-small" >
+          <button
+            nglButton
+            class="slds-button"
+            [class.slds-button_brand] = "caregiver.changed"
+            iconName="utility:save"
+            [disabled]="!caregiver.changed"
+            (click)="save()">
+              Save
+          </button>
+        </div>
+        <div *ngIf="caregiver.editing && caregiver.changed" class="slds-col slds-p-around_xx-small" >
+          <button
+            nglButton
+            class="slds-button"
+            [class.slds-button_destructive] = "caregiver.changed"
+            iconName="utility:delete"
+            [disabled]="!caregiver.changed"
+            (click)="discardChanges()">
+              Discard Changes
+          </button>
+        </div>
+        <div *ngIf="caregiver.editing && !caregiver.changed" class="slds-col slds-p-around_xx-small" >
+          <button
+            nglButton
+            class="slds-button"
+            variant="brand"
+            iconName="action:reject"
+            [disabled]="caregiver.changed"
+            (click)="cancelEditing()">
+              Cancel Editing
+          </button>
+        </div>
+        <div *ngIf="!caregiver.editing" class="slds-col slds-p-around_xx-small">
+          <button
+            nglButton
+            class="slds-button slds-button_destructive"
+            iconName="action:remove"
+            iconPosition="right"
+            (click)="remove()">
+              Remove
+          </button>
+        </div>
       </div>
     </div>
-  </div>
+  </form>
 </article>
 
 <!-- Discard Changes Modal -->
