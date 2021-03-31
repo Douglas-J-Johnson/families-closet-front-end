@@ -1,154 +1,161 @@
 <article class="slds-card slds-m-around_x-small">
-  <div class="slds-grid slds-grid_vertical slds-m-around_x-small">
-    <div class="slds-col slds-p-horizontal_xx-small">
-      <ngl-input label="First Name">
-        <input ngl
-        type="input"
-        placeholder="Enter child's first name"
-        [value]="child.first_name"
-        [readonly]="!child.editing">
-      </ngl-input>
-    </div>
-    <div class="slds-col slds-p-horizontal_xx-small">
-      <ngl-datepicker-input
-      label="Birthdate"
-      [(value)]="child.birthdate"
-      format="middle-endian"
-      patternPlaceholder
-      [disabled]="!child.editing">
-        <input nglDatepickerInput type="text"
-        [readonly]="!child.editing">
-      </ngl-datepicker-input>
-    </div>
-    <div class="slds-grid slds-wrap slds-m-top_small">
-      <div class="slds-col slds-m-around_x-small">
-        <div class="slds-box">
-          <div class="slds-grid slds-grid_vertical">
-            <div class="slds-col slds-p-around_xx-small">
-              <ngl-checkbox-toggle label="Give" enabledText="Yes" disabledText="No">
-                <input ngl
-                type="checkbox"
-                [(checked)]="child.give"
-                [disabled]="!child.editing">
-              </ngl-checkbox-toggle>
-            </div>
-            <div class="slds-col slds-p-horizontal_xx-small">
-              <ng-template #groupLabel>Clothing Gender Preference</ng-template>
-              <fieldset ngl-radio-group
-              type="button"
-              [label]="groupLabel"
-              [required]='false'
-              [disabled]="!child.editing">
-                <ngl-radio-option *ngFor="let gender of genders" [label]="gender">
-                  <input ngl
-                  type="radio"
-                  [disabled]="!child.editing">
-                </ngl-radio-option>
-              </fieldset>
-            </div>
-          </div>
-        </div>
+  <form [formGroup]="childForm">
+    <div class="slds-grid slds-grid_vertical slds-m-around_x-small">
+      <div class="slds-col slds-p-horizontal_xx-small">
+        <ngl-input label="First Name">
+          <input ngl
+          type="input"
+          formControlName="firstName"
+          placeholder="Enter child's first name"
+          [value]="child.first_name"
+          [readonly]="!child.editing">
+        </ngl-input>
       </div>
-      <div class="slds-col slds-m-around_x-small">
-        <div class="slds-box">
-          <div class="slds-grid slds-grid_vertical">
-            <div class="slds-grid">
+      <div class="slds-col slds-p-horizontal_xx-small">
+        <ngl-datepicker-input
+        label="Birthdate"
+        [(value)]="child.birthdate"
+        format="middle-endian"
+        patternPlaceholder
+        [disabled]="!child.editing">
+          <input nglDatepickerInput
+          formControlName="birthdate"
+          type="text"
+          [readonly]="!child.editing">
+        </ngl-datepicker-input>
+      </div>
+      <div class="slds-grid slds-wrap slds-m-top_small">
+        <div class="slds-col slds-m-around_x-small">
+          <div class="slds-box">
+            <div class="slds-grid slds-grid_vertical">
               <div class="slds-col slds-p-around_xx-small">
-                <ngl-checkbox-toggle label="Receive" enabledText="Yes" disabledText="No">
+                <ngl-checkbox-toggle label="Give" enabledText="Yes" disabledText="No">
                   <input ngl
+                  formControlName="give"
                   type="checkbox"
-                  [(checked)]="child.receive"
+                  [(checked)]="child.give"
                   [disabled]="!child.editing">
                 </ngl-checkbox-toggle>
               </div>
-              <div class="slds-col slds-p-around_xx-small">
-                <button
-                  nglButton
-                  title="Find givers"
-                  type="button"
-                  variant="brand"
-                  iconName="standard:search"
-                  (click)="findPartners()"
-                  [disabled]="!child.editing">
-                    Find Partners
-                </button>
+              <div class="slds-col slds-p-horizontal_xx-small">
+                <ng-template #groupLabel>Clothing Gender Preference</ng-template>
+                <fieldset ngl-radio-group
+                type="button"
+                [label]="groupLabel"
+                [required]='false'
+                [disabled]="!child.editing">
+                  <ngl-radio-option *ngFor="let gender of genders" [label]="gender">
+                    <input ngl
+                    type="radio"
+                    [disabled]="!child.editing">
+                  </ngl-radio-option>
+                </fieldset>
               </div>
             </div>
-            <div class="slds-col slds-p-horizontal_xx-small">
-              <ng-template #groupLabel>Clothing Gender Preference</ng-template>
-              <fieldset ngl-radio-group
-              type="button"
-              [label]="groupLabel"
-              [required]='false'
-              [disabled]="!child.editing">
-                <ngl-radio-option *ngFor="let gender of genders" [label]="gender">
-                  <input ngl
-                  type="radio"
-                  [disabled]="!child.editing">
-                </ngl-radio-option>
-              </fieldset>
+          </div>
+        </div>
+        <div class="slds-col slds-m-around_x-small">
+          <div class="slds-box">
+            <div class="slds-grid slds-grid_vertical">
+              <div class="slds-grid">
+                <div class="slds-col slds-p-around_xx-small">
+                  <ngl-checkbox-toggle label="Receive" enabledText="Yes" disabledText="No">
+                    <input ngl
+                    formControlName="receive"
+                    type="checkbox"
+                    [(checked)]="child.receive"
+                    [disabled]="!child.editing">
+                  </ngl-checkbox-toggle>
+                </div>
+                <div class="slds-col slds-p-around_xx-small">
+                  <button
+                    nglButton
+                    title="Find givers"
+                    type="button"
+                    variant="brand"
+                    iconName="standard:search"
+                    (click)="findPartners()"
+                    [disabled]="!child.editing">
+                      Find Partners
+                  </button>
+                </div>
+              </div>
+              <div class="slds-col slds-p-horizontal_xx-small">
+                <ng-template #groupLabel>Clothing Gender Preference</ng-template>
+                <fieldset ngl-radio-group
+                type="button"
+                [label]="groupLabel"
+                [required]='false'
+                [disabled]="!child.editing">
+                  <ngl-radio-option *ngFor="let gender of genders" [label]="gender">
+                    <input ngl
+                    type="radio"
+                    [disabled]="!child.editing">
+                  </ngl-radio-option>
+                </fieldset>
+              </div>
             </div>
           </div>
         </div>
       </div>
+      <div class="slds-grid slds-grid_align-end">
+        <div *ngIf="!child.editing" class="slds-col slds-p-around_xx-small">
+          <button
+            nglButton
+            title="Edit"
+            type="button"
+            variant="brand"
+            iconName="utility:edit"
+            (click)="edit()">
+              Edit
+          </button>
+        </div>
+        <div *ngIf="child.editing" class="slds-col slds-p-around_xx-small" >
+          <button
+            nglButton
+            class="slds-button"
+            [class.slds-button_brand] = "child.changed"
+            iconName="utility:save"
+            [disabled]="!child.changed"
+            (click)="save()">
+              Save
+          </button>
+        </div>
+        <div *ngIf="child.editing && child.changed" class="slds-col slds-p-around_xx-small" >
+          <button
+            nglButton
+            class="slds-button"
+            [class.slds-button_destructive] = "child.changed"
+            iconName="utility:delete"
+            [disabled]="!child.changed"
+            (click)="discardChanges()">
+              Discard Changes
+          </button>
+        </div>
+        <div *ngIf="child.editing && !child.changed" class="slds-col slds-p-around_xx-small" >
+          <button
+            nglButton
+            class="slds-button"
+            variant="brand"
+            iconName="action:reject"
+            [disabled]="child.changed"
+            (click)="cancelEditing()">
+              Cancel Editing
+          </button>
+        </div>
+        <div *ngIf="!child.editing" class="slds-col slds-p-around_xx-small">
+          <button
+            nglButton
+            class="slds-button slds-button_destructive"
+            iconName="action:remove"
+            iconPosition="right"
+            (click)="remove()">
+              Remove
+          </button>
+        </div>
+      </div>
     </div>
-    <div class="slds-grid slds-grid_align-end">
-      <div *ngIf="!child.editing" class="slds-col slds-p-around_xx-small">
-        <button
-          nglButton
-          title="Edit"
-          type="button"
-          variant="brand"
-          iconName="utility:edit"
-          (click)="edit()">
-            Edit
-        </button>
-      </div>
-      <div *ngIf="child.editing" class="slds-col slds-p-around_xx-small" >
-        <button
-          nglButton
-          class="slds-button"
-          [class.slds-button_brand] = "child.changed"
-          iconName="utility:save"
-          [disabled]="!child.changed"
-          (click)="save()">
-            Save
-        </button>
-      </div>
-      <div *ngIf="child.editing && child.changed" class="slds-col slds-p-around_xx-small" >
-        <button
-          nglButton
-          class="slds-button"
-          [class.slds-button_destructive] = "child.changed"
-          iconName="utility:delete"
-          [disabled]="!child.changed"
-          (click)="discardChanges()">
-            Discard Changes
-        </button>
-      </div>
-      <div *ngIf="child.editing && !child.changed" class="slds-col slds-p-around_xx-small" >
-        <button
-          nglButton
-          class="slds-button"
-          variant="brand"
-          iconName="action:reject"
-          [disabled]="child.changed"
-          (click)="cancelEditing()">
-            Cancel Editing
-        </button>
-      </div>
-      <div *ngIf="!child.editing" class="slds-col slds-p-around_xx-small">
-        <button
-          nglButton
-          class="slds-button slds-button_destructive"
-          iconName="action:remove"
-          iconPosition="right"
-          (click)="remove()">
-            Remove
-        </button>
-      </div>
-    </div>
-  </div>
+  </form>
 </article>
 
 <!-- Discard Changes Modal -->

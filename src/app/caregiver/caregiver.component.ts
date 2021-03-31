@@ -11,15 +11,15 @@ export class CaregiverComponent implements OnInit {
   @Output() caregiverEditing = new EventEmitter;
   @Output() caregiverChanged = new EventEmitter;
 
-  discardChangesModalOpen: boolean = false;
-  saveModalOpen: boolean = false;
-  removeModalOpen: boolean = false;
-
   caregiverForm = new FormGroup ({
     firstName: new FormControl(),
     lastName: new FormControl(),
     email: new FormControl()
   });
+
+  discardChangesModalOpen: boolean = false;
+  saveModalOpen: boolean = false;
+  removeModalOpen: boolean = false;
 
   ngOnInit(): void {
     // console.log('CAREGIVER', this.caregiver);

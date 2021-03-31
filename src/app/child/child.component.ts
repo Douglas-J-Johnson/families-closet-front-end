@@ -1,3 +1,4 @@
+import { FormControl, FormGroup } from '@angular/forms';
 import { Component, EventEmitter, Input, OnInit, ChangeDetectionStrategy, Output, enableProdMode } from '@angular/core';
 
 @Component({
@@ -10,6 +11,13 @@ export class ChildComponent implements OnInit {
   @Input() child: any;
   @Output() childEditing = new EventEmitter;
   @Output() childChanged = new EventEmitter;
+
+  childForm = new FormGroup ({
+    firstName: new FormControl(),
+    birthdate: new FormControl(),
+    give: new FormControl(),
+    receive: new FormControl(),
+  });
 
   discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;
