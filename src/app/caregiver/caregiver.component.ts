@@ -17,6 +17,10 @@ export class CaregiverComponent implements OnInit {
     email: new FormControl()
   });
 
+  get firstName() {return this.caregiverForm.get('firstName')}
+  get lastName() {return this.caregiverForm.get('lastName')}
+  get email() {return this.caregiverForm.get('email')}
+
   discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;
   removeModalOpen: boolean = false;

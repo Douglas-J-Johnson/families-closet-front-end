@@ -19,6 +19,11 @@ export class ChildComponent implements OnInit {
     receive: new FormControl(),
   });
 
+  get firstName() {return this.childForm.get('firstName')}
+  get birthdate() {return this.childForm.get('birthdate')}
+  get give() {return this.childForm.get('give')}
+  get receive() {return this.childForm.get('receive')}
+
   discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;
   removeModalOpen: boolean = false;

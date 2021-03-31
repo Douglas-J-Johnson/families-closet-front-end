@@ -15,6 +15,10 @@ export class FamilyComponent implements OnInit {
     locationDisplay: new FormControl()
   });
 
+  get displayName() {return this.familyForm.get('displayName')}
+  get locationActual() {return this.familyForm.get('displayName')}
+  get locationDisplay() {return this.familyForm.get('displayName')}
+
   familySectionOpen: boolean = true;
   caregiversSectionOpen: boolean = true;
   childrenSectionOpen: boolean = true;
