@@ -17,7 +17,7 @@ export class FamilyComponent implements OnInit {
 
   get displayName() {return this.familyForm.get('displayName')}
   get locationActual() {return this.familyForm.get('locationActual')}
-  get locationDisplay() {return this.familyForm.get('lcoationDisplay')}
+  get locationDisplay() {return this.familyForm.get('locationDisplay')}
 
   displayNameErrors(): any {
     if (!this.editing) {return null;}
@@ -28,13 +28,13 @@ export class FamilyComponent implements OnInit {
   locationActualErrors(): any {
     if (!this.editing) {return null;}
     if (!this.locationActual.touched) {return null; }
-    if (this.locationActual.errors.required) {return "Display Name is required.";}
+    if (this.locationActual.errors.required) {return "Actual Location is required.";}
   }
 
   locationDisplayErrors(): any {
     if (!this.editing) {return null;}
     if (!this.locationDisplay.touched) {return null; }
-    if (this.locationDisplay.errors.required) {return "Display Name is required.";}
+    if (this.locationDisplay.errors.required) {return "Display Location is required.";}
   }
 
   familySectionOpen: boolean = true;
