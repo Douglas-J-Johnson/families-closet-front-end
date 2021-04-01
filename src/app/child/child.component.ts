@@ -1,5 +1,5 @@
-import { FormControl, FormGroup } from '@angular/forms';
-import { Component, EventEmitter, Input, OnInit, ChangeDetectionStrategy, Output, enableProdMode } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, ChangeDetectionStrategy, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-child',
@@ -13,10 +13,10 @@ export class ChildComponent implements OnInit {
   @Output() childChanged = new EventEmitter;
 
   childForm = new FormGroup ({
-    firstName: new FormControl(),
-    birthdate: new FormControl(),
-    give: new FormControl(),
-    receive: new FormControl(),
+    firstName: new FormControl('', Validators.required),
+    birthdate: new FormControl('', Validators.required),
+    give: new FormControl('', Validators.required),
+    receive: new FormControl('', Validators.required),
   });
 
   get firstName() {return this.childForm.get('firstName')}

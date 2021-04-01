@@ -1,5 +1,5 @@
-import { FormControl, FormGroup } from '@angular/forms';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-caregiver',
@@ -12,9 +12,9 @@ export class CaregiverComponent implements OnInit {
   @Output() caregiverChanged = new EventEmitter;
 
   caregiverForm = new FormGroup ({
-    firstName: new FormControl(),
-    lastName: new FormControl(),
-    email: new FormControl()
+    firstName: new FormControl('', Validators.required),
+    lastName: new FormControl('', Validators.required),
+    email: new FormControl('', [Validators.required, Validators.email])
   });
 
   get firstName() {return this.caregiverForm.get('firstName')}

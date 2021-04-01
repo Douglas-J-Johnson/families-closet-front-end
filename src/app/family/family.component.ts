@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-family',
@@ -10,14 +10,32 @@ export class FamilyComponent implements OnInit {
   @Input() family: any;
 
   familyForm = new FormGroup ({
-    displayName: new FormControl(),
-    locationActual: new FormControl(),
-    locationDisplay: new FormControl()
+    displayName: new FormControl('', Validators.required),
+    locationActual: new FormControl('', Validators.required),
+    locationDisplay: new FormControl('', Validators.required)
   });
 
   get displayName() {return this.familyForm.get('displayName')}
-  get locationActual() {return this.familyForm.get('displayName')}
-  get locationDisplay() {return this.familyForm.get('displayName')}
+  get locationActual() {return this.familyForm.get('locationActual')}
+  get locationDisplay() {return this.familyForm.get('lcoationDisplay')}
+
+  displayNameErrors(): any {
+    if (!this.editing) {return null;}
+    if (!this.displayName.touched) {return null; }
+    if (this.displayName.errors.required) {return "Display Name is required.";}
+  }
+
+  locationActualErrors(): any {
+    if (!this.editing) {return null;}
+    if (!this.locationActual.touched) {return null; }
+    if (this.locationActual.errors.required) {return "Display Name is required.";}
+  }
+
+  locationDisplayErrors(): any {
+    if (!this.editing) {return null;}
+    if (!this.locationDisplay.touched) {return null; }
+    if (this.locationDisplay.errors.required) {return "Display Name is required.";}
+  }
 
   familySectionOpen: boolean = true;
   caregiversSectionOpen: boolean = true;

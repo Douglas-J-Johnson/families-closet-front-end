@@ -7,7 +7,7 @@
             <ngl-input
             label="Family Display Name"
             fieldLevelHelpTooltip="Test"
-            [error]='false'>
+            [error]="displayNameErrors()">
               <input ngl
               formControlName="displayName"
               type="input"
@@ -21,7 +21,7 @@
             <ngl-input
             label="Actual Location"
             fieldLevelHelpTooltip="Test"
-            [error]='false'>
+            [error]="locationActualErrors()">
               <input ngl
               formControlName="locationActual"
               type="input"
@@ -34,7 +34,7 @@
             <ngl-input
             label="Display Location"
             fieldLevelHelpTooltip="Test"
-            [error]='false'>
+            [error]="locationDisplayErrors()">
               <input ngl
               formControlName="locationDisplay"
               type="input"
