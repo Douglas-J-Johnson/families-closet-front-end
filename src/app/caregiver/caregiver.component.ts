@@ -21,6 +21,25 @@ export class CaregiverComponent implements OnInit {
   get lastName() {return this.caregiverForm.get('lastName')}
   get email() {return this.caregiverForm.get('email')}
 
+  firstNameErrors(): any {
+    if (!this.caregiver.editing) {return null;}
+    if (!this.firstName.touched) {return null; }
+    if (this.firstName.errors?.required) {return "First Name is required.";}
+  }
+
+  lastNameErrors(): any {
+    if (!this.caregiver.editing) {return null;}
+    if (!this.lastName.touched) {return null; }
+    if (this.lastName.errors?.required) {return "Last Name is required.";}
+  }
+
+  emailErrors(): any {
+    if (!this.caregiver.editing) {return null;}
+    if (!this.email.touched) {return null; }
+    if (this.email.errors?.required) {return "Email Address is required.";}
+    if (this.email.errors?.email) {return "Email Address must be a valid email address.";}
+  }
+
   discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;
   removeModalOpen: boolean = false;

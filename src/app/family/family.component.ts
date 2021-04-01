@@ -22,19 +22,19 @@ export class FamilyComponent implements OnInit {
   displayNameErrors(): any {
     if (!this.editing) {return null;}
     if (!this.displayName.touched) {return null; }
-    if (this.displayName.errors.required) {return "Display Name is required.";}
+    if (this.displayName.errors?.required) {return "Display Name is required.";}
   }
 
   locationActualErrors(): any {
     if (!this.editing) {return null;}
     if (!this.locationActual.touched) {return null; }
-    if (this.locationActual.errors.required) {return "Actual Location is required.";}
+    if (this.locationActual.errors?.required) {return "Actual Location is required.";}
   }
 
   locationDisplayErrors(): any {
     if (!this.editing) {return null;}
     if (!this.locationDisplay.touched) {return null; }
-    if (this.locationDisplay.errors.required) {return "Display Location is required.";}
+    if (this.locationDisplay.errors?.required) {return "Display Location is required.";}
   }
 
   familySectionOpen: boolean = true;

@@ -5,7 +5,9 @@
         <ngl-badge theme="inverse">Primary</ngl-badge>
       </div>
       <div class="slds-col slds-p-horizontal_xx-small">
-        <ngl-input label="First Name">
+        <ngl-input label="First Name"
+        fieldLevelHelpTooltip="Test"
+        [error]="firstNameErrors()">
           <input ngl
           formControlName="firstName"
           type="input"
@@ -15,7 +17,9 @@
         </ngl-input>
       </div>
       <div class="slds-col slds-p-horizontal_xx-small">
-        <ngl-input label="Last Name">
+        <ngl-input label="Last Name"
+        fieldLevelHelpTooltip="Test"
+        [error]="lastNameErrors()">
           <input ngl
           formControlName="lastName"
           type="input"
@@ -25,7 +29,9 @@
         </ngl-input>
       </div>
       <div class="slds-col slds-p-horizontal_xx-small">
-        <ngl-input label="Email Address">
+        <ngl-input label="Email Address"
+        fieldLevelHelpTooltip="Test"
+        [error]="emailErrors()">
           <input ngl
           formControlName="email"
           type="input"
