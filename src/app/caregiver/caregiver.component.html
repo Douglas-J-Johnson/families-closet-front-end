@@ -6,37 +6,35 @@
       </div>
       <div class="slds-col slds-p-horizontal_xx-small">
         <ngl-input label="First Name"
-        fieldLevelHelpTooltip="Test"
         [error]="firstNameErrors()">
           <input ngl
           formControlName="firstName"
           type="input"
           placeholder="Enter your first name"
-          [value]="caregiver.first_name"
+          [(ngModel)]="caregiver.first_name"
           [readonly]="!caregiver.editing">
         </ngl-input>
       </div>
       <div class="slds-col slds-p-horizontal_xx-small">
         <ngl-input label="Last Name"
-        fieldLevelHelpTooltip="Test"
         [error]="lastNameErrors()">
           <input ngl
           formControlName="lastName"
           type="input"
           placeholder="Enter your last name"
-          [value]="caregiver.last_name"
+          [(ngModel)]="caregiver.last_name"
           [readonly]="!caregiver.editing">
         </ngl-input>
       </div>
       <div class="slds-col slds-p-horizontal_xx-small">
         <ngl-input label="Email Address"
-        fieldLevelHelpTooltip="Test"
+        fieldLevelHelpTooltip="Caregiver's email address will be their login username"
         [error]="emailErrors()">
           <input ngl
           formControlName="email"
           type="input"
           placeholder="Enter your email"
-          [value]="caregiver.email"
+          [(ngModel)]="caregiver.email"
           [readonly]="!caregiver.editing">
         </ngl-input>
       </div>

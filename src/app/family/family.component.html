@@ -6,40 +6,39 @@
           <div class="slds-col slds-p-horizontal_x-small">
             <ngl-input
             label="Family Display Name"
-            fieldLevelHelpTooltip="Test"
+            fieldLevelHelpTooltip="Select a name to display for your family. This could be a your last name or a creative name to represent your family."
             [error]="displayNameErrors()">
               <input ngl
               formControlName="displayName"
               type="input"
-              required='true'
               placeholder="Enter name to display for your family"
-              [value]="family.display_name"
+              [(ngModel)]="family.display_name"
               [readonly]="!editing">
             </ngl-input>
           </div>
           <div class="slds-col slds-p-horizontal_x-small">
             <ngl-input
             label="Actual Location"
-            fieldLevelHelpTooltip="Test"
+            fieldLevelHelpTooltip="TBD"
             [error]="locationActualErrors()">
               <input ngl
               formControlName="locationActual"
               type="input"
               placeholder="TBD"
-              [value]="family.location_actual"
+              [(ngModel)]="family.location_actual"
               [readonly]="!editing">
             </ngl-input>
           </div>
           <div class="slds-col slds-p-horizontal_x-small">
             <ngl-input
             label="Display Location"
-            fieldLevelHelpTooltip="Test"
+            fieldLevelHelpTooltip="TBD"
             [error]="locationDisplayErrors()">
               <input ngl
               formControlName="locationDisplay"
               type="input"
               placeholder="TBD"
-              [value]="family.location_display"
+              [(ngModel)]="family.location_display"
               [readonly]="!editing">
             </ngl-input>
           </div>

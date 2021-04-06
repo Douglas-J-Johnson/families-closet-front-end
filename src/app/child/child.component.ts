@@ -24,6 +24,12 @@ export class ChildComponent implements OnInit {
   get give() {return this.childForm.get('give')}
   get receive() {return this.childForm.get('receive')}
 
+  firstNameErrors(): any {
+    if (!this.child.editing) {return null;}
+    if (!this.firstName.touched) {return null; }
+    if (this.firstName.errors?.required) {return "First Name is required.";}
+  }
+
   discardChangesModalOpen: boolean = false;
   saveModalOpen: boolean = false;
   removeModalOpen: boolean = false;
@@ -32,7 +38,7 @@ export class ChildComponent implements OnInit {
   sizes = '';
 
   ngOnInit(): void {
-    // console.log('CHILD', this.child);
+    console.log('CHILD', this.child);
   }
 
   findPartners() {

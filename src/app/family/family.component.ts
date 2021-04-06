@@ -48,7 +48,7 @@ export class FamilyComponent implements OnInit {
   saveModalOpen: boolean = false;
 
   ngOnInit(): void {
-    // console.log('FAMILY', this.family);
+    console.log('FAMILY', this.family);
 
     this.family.caregivers.forEach(caregiver => {
       caregiver.editing = false;
@@ -139,6 +139,7 @@ export class FamilyComponent implements OnInit {
   // Edit methods
   edit(): void {
     console.log('Edit family information');
+    console.log(this.family);
     this.editing = true;
   }
 
